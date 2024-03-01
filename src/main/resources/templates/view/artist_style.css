@@ -1,0 +1,10 @@
+body{
+    background-color: #464646;
+}
+
+#artist-name{
+    font-family: 'Pacifico', cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+}

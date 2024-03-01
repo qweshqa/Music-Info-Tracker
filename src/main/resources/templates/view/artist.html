@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${artist.getName()}"></title>
+
+    <link rel="stylesheet" href="artist_style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+<img th:src="${artist.getImageSource()}" alt="artist's image">
+
+<h1 id="artist-name" th:text="${artist.getName()}">artist's name</h1>
+
+<h2 th:text="${artist.getGenres()}"></h2>
+
+</body>
+</html>
