@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:text="${artist.getName()}"></title>
+    <title th:text="${query}">Search query</title>
 
     <link rel="stylesheet" href="/css/style.css" type="text/css"/>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
-
 </head>
 <body>
-<img th:src="${artist.getImageSource()}" alt="artist's image">
 
-<h1 th:text="${artist.getName()}">artist's name</h1>
+<h1 th:text="${'Found results: ' + artists.size()}"></h1>
+
+<table>
+    <h1>Artists</h1>
+    <tr>
+        <td th:each="artist: ${artists}">
+            <img th:src="${artist.getImageSource()}" alt="artist's image">
+            <h1 th:text="${artist.getName()}"></h1>
+        </td>
+    </tr>
+</table>
 
 </body>
 </html>

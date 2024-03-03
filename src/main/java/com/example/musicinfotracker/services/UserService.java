@@ -2,7 +2,6 @@ package com.example.musicinfotracker.services;
 
 import com.example.musicinfotracker.model.UserEntity;
 import com.example.musicinfotracker.repositories.UserRepository;
-import com.example.musicinfotracker.utils.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

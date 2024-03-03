@@ -9,6 +9,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -36,20 +37,25 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http    .authorizeHttpRequests(authorize -> authorize
                 .requestMatchers("/login", "/registration", "/error").permitAll()
-                .anyRequest().authenticated()
+                                .requestMatchers("/user/profile").authenticated()
+                                .anyRequest().permitAll()
                 )
-                .formLogin(formLogin -> formLogin.
-                        loginPage("/login")
+                .formLogin(formLogin -> formLogin
+                        .loginPage("/login")
                         .loginProcessingUrl("/login/process")
                         .defaultSuccessUrl("/musicInfoTracker", true)
                         .failureUrl("/login?error")
                         .permitAll()
                 )
-                .logout(logout -> logout.
-                        logoutUrl("/logout")
+                .logout(logout -> logout
+                        .logoutUrl("/logout")
                         .logoutSuccessUrl("/login")
                 );
         return http.build();
+    }
+    @Bean
+    public WebSecurityCustomizer ignoringCustomizer() {
+        return (web) -> web.ignoring().requestMatchers("/css/**");
     }
     @Bean
     public PasswordEncoder getPasswordEncoder() {
