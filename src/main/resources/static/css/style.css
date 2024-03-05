@@ -23,3 +23,7 @@ h3{
     font-style: normal;
     color: white;
 }
+#artist-image{
+    width: 160px;
+    height: 160px;
+}

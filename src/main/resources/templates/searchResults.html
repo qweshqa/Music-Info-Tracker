@@ -20,7 +20,7 @@
     <tr>
         <td th:each="artist : ${artists}">
             <a th:href="@{/artist/{id}(id=${artist.getId()})}">
-                <img th:src="${artist.getImageSource()}" alt="Artist's image">
+                <img id="artist-image" th:src="${artist.getImageSource()}" alt="Artist's image">
             </a>
             <h2 th:text="${artist.getName()}"></h2>
         </td>
