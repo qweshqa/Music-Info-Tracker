@@ -18,5 +18,7 @@
 
 <h1 th:text="${artist.getName()}">artist's name</h1>
 
+<h3 th:text="${'followers: ' + artist.getFollowers()}">followers</h3>
+<h3 th:text="${'main genres: ' + artist.getGenres()}">genres</h3>
 </body>
 </html>

@@ -17,12 +17,10 @@ import java.util.List;
 @Controller
 @RequestMapping("/musicInfoTracker")
 public class MainController {
-    private String accessToken;
     private SearchService searchService;
 
     @Autowired
-    public MainController(@Qualifier("accessToken") String accessToken, SearchService searchService) {
-        this.accessToken = accessToken;
+    public MainController(SearchService searchService) {
         this.searchService = searchService;
     }
 
@@ -35,12 +33,14 @@ public class MainController {
     @GetMapping("/search")
     public String search(@RequestParam("query") String query, Model model) throws IOException, InterruptedException {
         List<Artist> foundArtists;
+
         try{
             foundArtists = searchService.searchArtists(query);
         } catch (ArtistNotFoundException ignored){
             model.addAttribute("errorMsg", "Nothing found for the query " + query);
             return "errorPage";
         }
+
         model.addAttribute("query", query);
         model.addAttribute("artists", foundArtists);
 
