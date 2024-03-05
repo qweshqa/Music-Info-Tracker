@@ -1,7 +1,9 @@
 package com.example.musicinfotracker.services;
 
 import com.example.musicinfotracker.dto.Artist;
+import com.example.musicinfotracker.dto.Track;
 import com.example.musicinfotracker.utils.ArtistNotFoundException;
+import com.example.musicinfotracker.utils.TrackNotFoundException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,8 +41,6 @@ public class SearchService {
 
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-        System.out.println(response.body());
-
         if(response.statusCode() == 200){
             ObjectMapper objectMapper = new ObjectMapper();
 
@@ -58,7 +58,7 @@ public class SearchService {
 
                 artist.setId(artistNode.get(i).get("id").asText());
                 try{
-                    artist.setImageSource(artistNode.get(i).get("images").get(2).get("url").asText());
+                    artist.setImageSource(artistNode.get(i).get("images").get(0).get("url").asText());
                 } catch (NullPointerException ignored){
 
                 }
@@ -72,6 +72,52 @@ public class SearchService {
                 artists.add(artist);
             }
             return artists;
+        }
+        return null;
+    }
+
+    public List<Track> searchTracks(String query) throws IOException, InterruptedException {
+        String requestUrl = "https://api.spotify.com/v1/search";
+        String requestBody = "q=" + query +
+                "&type=track";
+
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(requestUrl + '?' + requestBody))
+                .header("Authorization", "Bearer " + accessToken)
+                .GET()
+                .build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        if(response.statusCode() == 200){
+            ObjectMapper objectMapper = new ObjectMapper();
+
+            JsonNode jsonNode = objectMapper.readTree(response.body());
+            if(jsonNode.get("tracks").get("total").asInt() == 0){
+                throw new TrackNotFoundException();
+            }
+            
+            JsonNode trackNode = jsonNode.get("tracks").get("items");
+
+            List<Track> tracks = new ArrayList<>();
+
+            for (int i = 0; i < trackNode.size(); i++){
+                Track track = new Track();
+
+                track.setId(trackNode.get(i).get("id").asText());
+                track.setName(trackNode.get(i).get("name").asText());
+                track.setPopularity(trackNode.get(i).get("popularity").asInt());
+                track.setArtistsId(new ArrayList<>());
+                for(int j = 0; j < trackNode.get(i).get("artists").size(); j++){
+                    track.addArtistId(trackNode.get(i).get("artists").get(j).get("id").asText());
+                }
+                track.setPreview_url(trackNode.get(i).get("preview_url").asText());
+                track.setImageSource(trackNode.get(i).get("album").get("images").get(0).get("url").asText());
+
+                tracks.add(track);
+            }
+            return tracks;
         }
         return null;
     }

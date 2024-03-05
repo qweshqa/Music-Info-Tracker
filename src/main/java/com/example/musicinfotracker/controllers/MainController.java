@@ -1,8 +1,10 @@
 package com.example.musicinfotracker.controllers;
 
 import com.example.musicinfotracker.dto.Artist;
+import com.example.musicinfotracker.dto.Track;
 import com.example.musicinfotracker.services.SearchService;
 import com.example.musicinfotracker.utils.ArtistNotFoundException;
+import com.example.musicinfotracker.utils.TrackNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -33,16 +35,20 @@ public class MainController {
     @GetMapping("/search")
     public String search(@RequestParam("query") String query, Model model) throws IOException, InterruptedException {
         List<Artist> foundArtists;
+        List<Track> foundTracks;
 
-        try{
-            foundArtists = searchService.searchArtists(query);
-        } catch (ArtistNotFoundException ignored){
-            model.addAttribute("errorMsg", "Nothing found for the query " + query);
-            return "errorPage";
-        }
+        foundArtists = searchService.searchArtists(query);
+        foundTracks = searchService.searchTracks(query);
+
 
         model.addAttribute("query", query);
-        model.addAttribute("artists", foundArtists);
+        if(!foundArtists.isEmpty()){
+            model.addAttribute("artists", foundArtists);
+        } else model.addAttribute("artists_not_found", "No one artist was found");
+
+        if(!foundTracks.isEmpty()){
+            model.addAttribute("tracks", foundTracks);
+        } else model.addAttribute("tracks_not_found", "No one track was not found");
 
         return "searchResults";
     }
