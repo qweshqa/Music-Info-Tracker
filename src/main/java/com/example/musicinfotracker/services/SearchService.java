@@ -12,9 +12,11 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.net.URI;
+import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +31,10 @@ public class SearchService {
 
     public List<Artist> searchArtists(String query) throws IOException, InterruptedException {
         String requestUrl = "https://api.spotify.com/v1/search";
-        String requestBody = "q=" + query +
+        // split query on parts and connect by '+' to avoid URISyntaxException
+        String[] queryParts = query.split("\\s+");
+        String finalQuery = String.join("+", queryParts);
+        String requestBody = "q=" + URLEncoder.encode(finalQuery, StandardCharsets.UTF_8) +
                 "&type=artist";
 
         HttpClient client = HttpClient.newHttpClient();
@@ -78,7 +83,9 @@ public class SearchService {
 
     public List<Track> searchTracks(String query) throws IOException, InterruptedException {
         String requestUrl = "https://api.spotify.com/v1/search";
-        String requestBody = "q=" + query +
+        String[] queryParts = query.split("\\s+");
+        String finalQuery = String.join("+", queryParts);
+        String requestBody = "q=" + URLEncoder.encode(finalQuery, StandardCharsets.UTF_8) +
                 "&type=track";
 
         HttpClient client = HttpClient.newHttpClient();
