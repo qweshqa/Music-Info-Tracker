@@ -11,10 +11,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
+<div id="track-info-box">
+    <img id="track-image" th:src="${track.getImageSource()}" alt="track image">
 
-<img th:src="${track.getImageSource()}" alt="track image">
+    <h1 id="track-name" th:text="${track.getName()}"></h1>
+</div>
 
-<h1 th:text="${track.getName()}"></h1>
 
 </body>
 </html>

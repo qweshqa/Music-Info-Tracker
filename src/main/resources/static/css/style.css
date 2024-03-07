@@ -23,11 +23,30 @@ h3{
     font-style: normal;
     color: white;
 }
-#artist-image{
+.search-result-image{
     width: 160px;
     height: 160px;
 }
+#track-info-box{
+    background-color: #1a1a1a;
+    height: 480px;
+    width: 1366px;
+}
 #track-image{
-    width: 160px;
-    height: 160px;
+    border-style: solid;
+    border-color: white;
+    width: 320px;
+    height: 320px;
+
+    position: relative;
+
+    top: 60px;
+    left: 300px;
+}
+#track-name{
+    position: relative;
+
+    left: 640px;
+    bottom: 50px;
+    width: fit-content;
 }
