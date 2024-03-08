@@ -18,7 +18,7 @@
     <tr>
         <td th:each="artist : ${artists}">
             <a th:href="@{/artist/{id}(id=${artist.getId()})}">
-                <img id="artist-image" th:src="${artist.getImageSource()}" alt="Artist's image">
+                <img class="search-result-image" th:src="${artist.getImageSource()}" alt="Artist's image">
             </a>
             <h2 th:text="${artist.getName()}"></h2>
         </td>
@@ -32,7 +32,7 @@
         <tr>
             <td th:each="track : ${tracks}">
                 <a th:href="@{/track/{id}(id=${track.getId()})}">
-                    <img id="track-image" th:src="${track.getImageSource()}" alt="Track image">
+                    <img class="search-result-image" th:src="${track.getImageSource()}" alt="Track image">
                 </a>
                 <h2 th:text="${track.getName()}"></h2>
             </td>

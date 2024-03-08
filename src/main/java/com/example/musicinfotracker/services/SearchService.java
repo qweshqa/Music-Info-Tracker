@@ -68,11 +68,6 @@ public class SearchService {
 
                 }
                 artist.setName(artistNode.get(i).get("name").asText());
-                artist.setFollowers(artistNode.get(i).get("followers").get("total").asInt());
-                artist.setGenres(new ArrayList<>());
-                for (int j = 0; j < artistNode.get(i).get("genres").size(); j++) {
-                    artist.addGenre(artistNode.get(i).get("genres").elements().next().asText());
-                }
                 
                 artists.add(artist);
             }
@@ -114,12 +109,6 @@ public class SearchService {
 
                 track.setId(trackNode.get(i).get("id").asText());
                 track.setName(trackNode.get(i).get("name").asText());
-                track.setPopularity(trackNode.get(i).get("popularity").asInt());
-                track.setArtistsId(new ArrayList<>());
-                for(int j = 0; j < trackNode.get(i).get("artists").size(); j++){
-                    track.addArtistId(trackNode.get(i).get("artists").get(j).get("id").asText());
-                }
-                track.setPreview_url(trackNode.get(i).get("preview_url").asText());
                 track.setImageSource(trackNode.get(i).get("album").get("images").get(0).get("url").asText());
 
                 tracks.add(track);
