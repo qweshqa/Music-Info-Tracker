@@ -6,7 +6,7 @@ public class Track {
     private String id;
     private String name;
     private Album album;
-    private List<String> artistsId;
+    private List<Artist> artists;
     private String lyrics;
     private int popularity;
     private String preview_url;
@@ -15,13 +15,13 @@ public class Track {
     public Track(){
 
     }
-    public Track(String id, String name, Album album, String lyrics, List<String> artistsId,
+    public Track(String id, String name, Album album, String lyrics, List<Artist> artists,
                  int popularity, String preview_url, String imageSource) {
         this.id = id;
         this.name = name;
         this.album = album;
         this.lyrics = lyrics;
-        this.artistsId = artistsId;
+        this.artists = artists;
         this.popularity = popularity;
         this.preview_url = preview_url;
         this.imageSource = imageSource;
@@ -59,14 +59,14 @@ public class Track {
         this.lyrics = lyrics;
     }
 
-    public List<String> getArtistsId() {
-        return artistsId;
+    public List<Artist> getArtists() {
+        return artists;
     }
 
-    public void addArtistId(String id) { artistsId.add(id); }
+    public void addArtistId(Artist artist) { artists.add(artist); }
 
-    public void setArtistsId(List<String> artistsId) {
-        this.artistsId = artistsId;
+    public void setArtists(List<Artist> artists) {
+        this.artists = artists;
     }
 
     public int getPopularity() {

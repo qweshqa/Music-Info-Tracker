@@ -15,6 +15,11 @@
     <img id="track-image" th:src="${track.getImageSource()}" alt="track image">
 
     <h1 id="track-name" th:text="${track.getName()}"></h1>
+
+    <div id="track-artists">
+    <h3>By <span th:each="artist, iterStat : ${track.getArtists()}"
+          th:text="${artist.getName() + (iterStat.last ? '' : ' &amp; ')}"></span></h3>
+    </div>
 </div>
 
 

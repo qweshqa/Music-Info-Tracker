@@ -30,7 +30,7 @@ h3{
 #track-info-box{
     background-color: #1a1a1a;
     height: 480px;
-    width: 1366px;
+    width: auto;
 }
 #track-image{
     border-style: solid;
@@ -44,6 +44,13 @@ h3{
     left: 300px;
 }
 #track-name{
+    position: relative;
+
+    left: 640px;
+    bottom: 40px;
+    width: fit-content;
+}
+#track-artists{
     position: relative;
 
     left: 640px;
