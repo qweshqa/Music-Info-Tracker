@@ -1,5 +1,6 @@
 package com.example.musicinfotracker.services;
 
+import com.example.musicinfotracker.dto.Album;
 import com.example.musicinfotracker.dto.Artist;
 import com.example.musicinfotracker.dto.Track;
 import com.example.musicinfotracker.utils.TrackNotFoundException;
@@ -14,6 +15,8 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 @Service
@@ -43,6 +46,13 @@ public class TrackService {
             Track track = new Track();
 
             track.setName(jsonNode.get("name").asText());
+            track.setAlbum(new Album());
+
+            // parse release_date from string to LocalDate to be able to display it in any format
+            String releaseDateString = jsonNode.get("album").get("release_date").asText();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            track.getAlbum().setReleaseDate(LocalDate.parse(releaseDateString, formatter));
+
             track.setId(jsonNode.get("id").asText());
             track.setPreview_url(jsonNode.get("preview_url").asText());
             track.setImageSource(jsonNode.get("album").get("images").get(0).get("url").asText());

@@ -32,6 +32,15 @@ h3{
     height: 480px;
     width: auto;
 }
+#track-release-date{
+    color: #626262;
+    width: fit-content;
+
+    position: relative;
+
+    left: 640px;
+    bottom: 290px;
+}
 #track-image{
     border-style: solid;
     border-color: white;
