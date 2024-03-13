@@ -22,6 +22,8 @@
     <h3>By <span th:each="artist, iterStat : ${track.getArtists()}"
           th:text="${artist.getName() + (iterStat.last ? '' : ' &amp; ')}"></span></h3>
     </div>
+
+    <h1 id="track-album" th:text="${'(From album ' + track.getAlbum().getName() + ')'}"></h1>
 </div>
 
 

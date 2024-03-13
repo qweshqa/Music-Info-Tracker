@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Locale;
 
 public class Album {
-    private int id;
-    private String title;
+    private String id;
+    private String name;
     private LocalDate releaseDate;
     private List<Track> tracks;
     private List<Artist> artists;
@@ -15,28 +15,28 @@ public class Album {
     public Album(){
 
     }
-    public Album(int id, String title, LocalDate releaseDate, List<Track> tracks, List<Artist> artists) {
+    public Album(String id, String name, LocalDate releaseDate, List<Track> tracks, List<Artist> artists) {
         this.id = id;
-        this.title = title;
+        this.name = name;
         this.releaseDate = releaseDate;
         this.tracks = tracks;
         this.artists = artists;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public LocalDate getReleaseDate() {

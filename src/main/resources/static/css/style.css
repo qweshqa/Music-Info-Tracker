@@ -66,3 +66,9 @@ h3{
     bottom: 50px;
     width: fit-content;
 }
+#track-album{
+    position: relative;
+    left: 885px;
+    bottom: 142px;
+    width: fit-content;
+}
