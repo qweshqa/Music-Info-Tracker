@@ -7,19 +7,17 @@ public class Track {
     private String name;
     private Album album;
     private List<Artist> artists;
-    private String lyrics;
     private String preview_url;
     private String imageSource;
 
     public Track(){
 
     }
-    public Track(String id, String name, Album album, String lyrics, List<Artist> artists,
+    public Track(String id, String name, Album album, List<Artist> artists,
                  String preview_url, String imageSource) {
         this.id = id;
         this.name = name;
         this.album = album;
-        this.lyrics = lyrics;
         this.artists = artists;
         this.preview_url = preview_url;
         this.imageSource = imageSource;
@@ -47,14 +45,6 @@ public class Track {
 
     public void setAlbum(Album album) {
         this.album = album;
-    }
-
-    public String getLyrics() {
-        return lyrics;
-    }
-
-    public void setLyrics(String lyrics) {
-        this.lyrics = lyrics;
     }
 
     public List<Artist> getArtists() {
