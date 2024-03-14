@@ -1,7 +1,9 @@
 package com.example.musicinfotracker.services;
 
+import com.example.musicinfotracker.dto.Album;
 import com.example.musicinfotracker.dto.Artist;
 import com.example.musicinfotracker.dto.Track;
+import com.example.musicinfotracker.utils.AlbumNotFoundException;
 import com.example.musicinfotracker.utils.ArtistNotFoundException;
 import com.example.musicinfotracker.utils.TrackNotFoundException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -50,10 +52,6 @@ public class SearchService {
             ObjectMapper objectMapper = new ObjectMapper();
 
             JsonNode jsonNode = objectMapper.readTree(response.body());
-            if(jsonNode.get("artists").get("total").asInt() == 0){
-                throw new ArtistNotFoundException();
-            }
-            
             JsonNode artistNode = jsonNode.get("artists").get("items");
 
             List<Artist> artists = new ArrayList<>();
@@ -96,10 +94,6 @@ public class SearchService {
             ObjectMapper objectMapper = new ObjectMapper();
 
             JsonNode jsonNode = objectMapper.readTree(response.body());
-            if(jsonNode.get("tracks").get("total").asInt() == 0){
-                throw new TrackNotFoundException();
-            }
-            
             JsonNode trackNode = jsonNode.get("tracks").get("items");
 
             List<Track> tracks = new ArrayList<>();
@@ -114,6 +108,43 @@ public class SearchService {
                 tracks.add(track);
             }
             return tracks;
+        }
+        return null;
+    }
+
+    public List<Album> searchAlbums(String query) throws IOException, InterruptedException{
+        String requestUrl = "https://api.spotify.com/v1/search";
+        String[] queryParts = query.split("\\s+");
+        String finalQuery = String.join("+", queryParts);
+        String requestBody = "q=" + URLEncoder.encode(finalQuery, StandardCharsets.UTF_8) +
+                "&type=album";
+
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(requestUrl + '?' + requestBody))
+                .header("Authorization", "Bearer " + accessToken)
+                .GET()
+                .build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        if(response.statusCode() == 200){
+            ObjectMapper objectMapper = new ObjectMapper();
+
+            JsonNode jsonNode = objectMapper.readTree(response.body());
+            JsonNode albumNode = jsonNode.get("albums").get("items");
+
+            List<Album> foundAlbums = new ArrayList<>();
+            for (int i = 0; i < albumNode.size(); i++) {
+                Album album = new Album();
+
+                album.setId(albumNode.get(i).get("id").asText());
+                album.setName(albumNode.get(i).get("name").asText());
+                album.setImageSource(albumNode.get(i).get("images").get(0).get("url").asText());
+
+                foundAlbums.add(album);
+            }
+            return foundAlbums;
         }
         return null;
     }

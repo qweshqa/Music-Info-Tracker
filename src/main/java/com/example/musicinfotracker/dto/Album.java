@@ -8,6 +8,7 @@ import java.util.Locale;
 public class Album {
     private String id;
     private String name;
+    private String imageSource;
     private LocalDate releaseDate;
     private List<Track> tracks;
     private List<Artist> artists;
@@ -15,9 +16,10 @@ public class Album {
     public Album(){
 
     }
-    public Album(String id, String name, LocalDate releaseDate, List<Track> tracks, List<Artist> artists) {
+    public Album(String id, String name, String imageSource, LocalDate releaseDate, List<Track> tracks, List<Artist> artists) {
         this.id = id;
         this.name = name;
+        this.imageSource = imageSource;
         this.releaseDate = releaseDate;
         this.tracks = tracks;
         this.artists = artists;
@@ -37,6 +39,14 @@ public class Album {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getImageSource() {
+        return imageSource;
+    }
+
+    public void setImageSource(String imageSource) {
+        this.imageSource = imageSource;
     }
 
     public LocalDate getReleaseDate() {

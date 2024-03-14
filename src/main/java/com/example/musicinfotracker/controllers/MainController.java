@@ -1,5 +1,6 @@
 package com.example.musicinfotracker.controllers;
 
+import com.example.musicinfotracker.dto.Album;
 import com.example.musicinfotracker.dto.Artist;
 import com.example.musicinfotracker.dto.Track;
 import com.example.musicinfotracker.services.SearchService;
@@ -36,10 +37,11 @@ public class MainController {
     public String search(@RequestParam("query") String query, Model model) throws IOException, InterruptedException {
         List<Artist> foundArtists;
         List<Track> foundTracks;
+        List<Album> foundAlbums;
 
         foundArtists = searchService.searchArtists(query);
         foundTracks = searchService.searchTracks(query);
-
+        foundAlbums = searchService.searchAlbums(query);
 
         model.addAttribute("query", query);
         if(!foundArtists.isEmpty()){
@@ -49,6 +51,10 @@ public class MainController {
         if(!foundTracks.isEmpty()){
             model.addAttribute("tracks", foundTracks);
         } else model.addAttribute("tracks_not_found", "No one track was not found");
+
+        if(!foundAlbums.isEmpty()){
+            model.addAttribute("albums", foundAlbums);
+        } else model.addAttribute("albums_not_found", "No one album was found");
 
         return "searchResults";
     }
