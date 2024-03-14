@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${album.getName()}"></title>
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<img th:src="${album.getImageSource()}" alt="Album image">
+
+<h1 th:text="${album.getName()}"></h1>
+</body>
+</html>

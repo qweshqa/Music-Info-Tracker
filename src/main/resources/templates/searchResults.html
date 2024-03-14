@@ -47,7 +47,9 @@
     <table>
         <tr>
             <td th:each="album: ${albums}">
-                <img class="search-result-image" th:src="${album.getImageSource()}" alt="Album image">
+                <a th:href="@{/albums/{id}(id=${album.getId()})}">
+                    <img class="search-result-image" th:src="${album.getImageSource()}" alt="Album image">
+                </a>
                 <h2 th:text="${album.getName()}"></h2>
             </td>
         </tr>
