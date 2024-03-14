@@ -13,20 +13,21 @@
 <body>
 
 <h1>Artists:</h1>
-
-<table>
-    <tr>
-        <td th:each="artist : ${artists}">
-            <a th:href="@{/artist/{id}(id=${artist.getId()})}">
-                <img class="search-result-image" th:src="${artist.getImageSource()}" alt="Artist's image">
-            </a>
-            <h2 th:text="${artist.getName()}"></h2>
-        </td>
-    </tr>
-</table>
+<div th:if="artists">
+    <table>
+        <tr>
+            <td th:each="artist : ${artists}">
+                <a th:href="@{/artist/{id}(id=${artist.getId()})}">
+                    <img class="search-result-image" th:src="${artist.getImageSource()}" alt="Artist's image">
+                </a>
+                <h2 th:text="${artist.getName()}"></h2>
+            </td>
+        </tr>
+    </table>
+</div>
+<h2 th:if="artists_not_found" th:text="${artists_not_found}"></h2>
 
 <h1>Tracks:</h1>
-
 <div th:if="tracks">
     <table>
         <tr>
