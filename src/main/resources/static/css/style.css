@@ -8,6 +8,7 @@ h1{
     font-weight: 500;
     font-style: normal;
     color: white;
+    width: fit-content;
 }
 h2{
     font-family: "Rubik", sans-serif;
@@ -15,6 +16,7 @@ h2{
     font-weight: 500;
     font-style: normal;
     color: white;
+    width: fit-content;
 }
 h3{
     font-family: "Rubik", sans-serif;
@@ -22,6 +24,7 @@ h3{
     font-weight: 500;
     font-style: normal;
     color: white;
+    width: fit-content;
 }
 .search-result-image{
     width: 160px;
@@ -52,23 +55,18 @@ h3{
     top: 60px;
     left: 300px;
 }
-#track-name{
+#track-name-and-album{
     position: relative;
 
     left: 640px;
     bottom: 40px;
-    width: fit-content;
 }
 #track-artists{
     position: relative;
 
     left: 640px;
     bottom: 50px;
-    width: fit-content;
 }
-#track-album{
-    position: relative;
-    left: 885px;
-    bottom: 142px;
-    width: fit-content;
+a:link{
+    color: lightblue;
 }
