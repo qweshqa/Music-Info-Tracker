@@ -1,6 +1,7 @@
 package com.example.musicinfotracker.services;
 
 import com.example.musicinfotracker.dto.Album;
+import com.example.musicinfotracker.dto.Artist;
 import com.example.musicinfotracker.utils.AlbumNotFoundException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -13,6 +14,10 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class AlbumService {
@@ -44,6 +49,21 @@ public class AlbumService {
             foundAlbum.setId(id);
             foundAlbum.setName(jsonNode.get("name").asText());
             foundAlbum.setImageSource(jsonNode.get("images").get(0).get("url").asText());
+
+            String releaseDateString = jsonNode.get("release_date").asText();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            foundAlbum.setReleaseDate(LocalDate.parse(releaseDateString, formatter));
+
+            List<Artist> albumArtists = new ArrayList<>();
+            for (int i = 0; i < jsonNode.get("artists").size(); i++) {
+                Artist artist = new Artist();
+
+                artist.setName(jsonNode.get("artists").get(i).get("name").asText());
+                artist.setId(jsonNode.get("artists").get(i).get("id").asText());
+
+                albumArtists.add(artist);
+            }
+            foundAlbum.setArtists(albumArtists);
 
             return foundAlbum;
         }

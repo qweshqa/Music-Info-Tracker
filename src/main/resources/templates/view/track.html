@@ -11,10 +11,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-<div id="track-info-box">
-    <img id="track-image" th:src="${track.getImageSource()}" alt="track image">
+<div class="track-and-album-info-box">
+    <img class="album-image" th:src="${track.getImageSource()}" alt="track image">
 
-    <h3 id="track-release-date" th:text="${track.getAlbum().getReleaseDateToDisplay()}"></h3>
+    <h3 class="album-release-date" th:text="${track.getAlbum().getReleaseDateToDisplay()}"></h3>
 
     <h1 id="track-name-and-album">
         <span th:text="${track.getName()}"></span>
@@ -25,8 +25,7 @@
         )
     </h1>
 
-
-    <div id="track-artists">
+    <div class="album-artists">
     <h3>By <span th:each="artist, iterStat : ${track.getArtists()}"
           th:text="${artist.getName() + (iterStat.last ? '' : ' &amp; ')}"></span></h3>
     </div>

@@ -30,12 +30,12 @@ h3{
     width: 160px;
     height: 160px;
 }
-#track-info-box{
+.album-info-box{
     background-color: #1a1a1a;
     height: 480px;
     width: auto;
 }
-#track-release-date{
+.album-release-date{
     color: #626262;
     width: fit-content;
 
@@ -44,7 +44,7 @@ h3{
     left: 640px;
     bottom: 290px;
 }
-#track-image{
+.album-image{
     border-style: solid;
     border-color: white;
     width: 320px;
@@ -61,7 +61,7 @@ h3{
     left: 640px;
     bottom: 40px;
 }
-#track-artists{
+.album-artists{
     position: relative;
 
     left: 640px;
