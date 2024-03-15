@@ -72,8 +72,7 @@ public class TrackService {
 
             return track;
         }
-        else{
-            throw new TrackNotFoundException();
-        }
+        throw new TrackNotFoundException();
+
     }
 }

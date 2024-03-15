@@ -36,9 +36,6 @@ public class ArtistService {
 
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-        if(response.statusCode() == 400){
-            throw new ArtistNotFoundException();
-        }
         if(response.statusCode() == 200){
             ObjectMapper objectMapper = new ObjectMapper();
 
@@ -61,6 +58,6 @@ public class ArtistService {
 
             return artist;
         }
-        return null;
+        throw new ArtistNotFoundException();
     }
 }
