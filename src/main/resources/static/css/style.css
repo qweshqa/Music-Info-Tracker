@@ -26,6 +26,14 @@ h3{
     color: white;
     width: fit-content;
 }
+h4{
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    color: white;
+    width: fit-content;
+}
 .search-result-image{
     width: 160px;
     height: 160px;
@@ -69,4 +77,19 @@ h3{
 }
 a:link{
     color: lightblue;
+}
+.track-param-name{
+    position: relative;
+
+    left: 250px;
+}
+.track-param-artists{
+    position: relative;
+
+    left: 500px;
+}
+.track-param-duration{
+    position: relative;
+
+    left: 750px;
 }

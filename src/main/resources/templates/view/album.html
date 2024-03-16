@@ -24,7 +24,16 @@
         <h3>By <span th:each="artist, iterStat : ${album.getArtists()}"
                      th:text="${artist.getName() + (iterStat.last ? '' : ' &amp; ')}"></span></h3>
     </div>
+
 </div>
+<div id="album-tracks-origin">
+    <h4 style="color: #1a1a1a">№
+        <span class="track-param-name">Name</span>
+        <span class="track-param-artists">Artists</span>
+        <span class="track-param-duration">Duration</span>
+    </h4>
+</div>
+
 
 </body>
 </html>

@@ -7,6 +7,7 @@ public class Track {
     private String name;
     private Album album;
     private int trackNumberInAlbum;
+    private int durationMs;
     private List<Artist> artists;
     private String preview_url;
     private String imageSource;
@@ -14,12 +15,13 @@ public class Track {
     public Track(){
 
     }
-    public Track(String id, String name, Album album, int track_number_in_album, List<Artist> artists,
-                 String preview_url, String imageSource) {
+    public Track(String id, String name, Album album, int track_number_in_album, int durationMs,
+                 List<Artist> artists, String preview_url, String imageSource) {
         this.id = id;
         this.name = name;
         this.album = album;
         this.trackNumberInAlbum = track_number_in_album;
+        this.durationMs = durationMs;
         this.artists = artists;
         this.preview_url = preview_url;
         this.imageSource = imageSource;
@@ -55,6 +57,14 @@ public class Track {
 
     public void setTrackNumberInAlbum(int trackNumberInAlbum) {
         this.trackNumberInAlbum = trackNumberInAlbum;
+    }
+
+    public int getDurationMs() {
+        return durationMs;
+    }
+
+    public void setDurationMs(int durationMs) {
+        this.durationMs = durationMs;
     }
 
     public List<Artist> getArtists() {

@@ -2,6 +2,7 @@ package com.example.musicinfotracker.services;
 
 import com.example.musicinfotracker.dto.Album;
 import com.example.musicinfotracker.dto.Artist;
+import com.example.musicinfotracker.dto.Track;
 import com.example.musicinfotracker.utils.AlbumNotFoundException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -64,6 +65,34 @@ public class AlbumService {
                 albumArtists.add(artist);
             }
             foundAlbum.setArtists(albumArtists);
+
+            List<Track> albumTracks = new ArrayList<>();
+            JsonNode trackNode = jsonNode.get("tracks").get("items");
+            for(int i = 0; i < trackNode.size(); i++){
+                Track track = new Track();
+
+                track.setId(trackNode.get(i).get("id").asText());
+                track.setName(trackNode.get(i).get("name").asText());
+                track.setTrackNumberInAlbum(trackNode.get(i).get("track_number").asInt());
+                track.setImageSource(foundAlbum.getImageSource());
+                track.setPreview_url(trackNode.get(i).get("preview_url").asText());
+                track.setDurationMs(trackNode.get(i).get("duration_ms").asInt());
+                
+                List<Artist> trackArtists = new ArrayList<>();
+                JsonNode artistNode = trackNode.get(i).get("artists");
+                for (int j = 0; j < artistNode.size(); j++) {
+                    Artist artist = new Artist();
+
+                    artist.setId(artistNode.get(j).get("id").asText());
+                    artist.setName(artistNode.get(j).get("name").asText());
+
+                    trackArtists.add(artist);
+                }
+                track.setArtists(trackArtists);
+
+                albumTracks.add(track);
+            }
+            foundAlbum.setTracks(albumTracks);
 
             return foundAlbum;
         }
