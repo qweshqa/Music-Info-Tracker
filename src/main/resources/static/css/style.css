@@ -79,17 +79,27 @@ a:link{
     color: lightblue;
 }
 .track-param-name{
+    text-align: left;
     position: relative;
 
     left: 250px;
 }
 .track-param-artists{
+    text-align: left;
     position: relative;
 
     left: 500px;
 }
 .track-param-duration{
+    text-align: left;
     position: relative;
 
     left: 750px;
 }
+#album-tracks-origin h4{
+    color: #1a1a1a;
+}
+#album-tracks h3 {
+    margin-bottom: 70px;
+}
+

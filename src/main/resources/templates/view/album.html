@@ -27,13 +27,20 @@
 
 </div>
 <div id="album-tracks-origin">
-    <h4 style="color: #1a1a1a">№
+    <h4>№
         <span class="track-param-name">Name</span>
         <span class="track-param-artists">Artists</span>
         <span class="track-param-duration">Duration</span>
     </h4>
 </div>
-
+<div id="album-tracks">
+    <div id="album-track" th:each="track : ${album.getTracks()}">
+        <h3>
+            <span th:text="${track.getTrackNumberInAlbum()}"></span>
+            <span class="track-param-name" th:text="${track.getName()}"></span>
+        </h3>
+    </div>
+</div>
 
 </body>
 </html>
