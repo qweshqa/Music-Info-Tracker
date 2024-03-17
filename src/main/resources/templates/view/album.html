@@ -37,8 +37,14 @@
     <div id="album-track" th:each="track : ${album.getTracks()}">
         <h3>
             <span th:text="${track.getTrackNumberInAlbum()}"></span>
-            <span class="track-param-name" th:text="${track.getName()}"></span>
+            <img class="track-image-to-display" th:src="${track.getImageSource()}" alt="track image">
+            <span th:text="${track.getName()}"></span>
         </h3>
+        <h3 class="track-artists-to-display">
+            <span th:each="artist, iterStat : ${track.getArtists()}"
+                  th:text="${artist.getName() + (iterStat.last ? '' : ', ')}"></span>
+        </h3>
+        <h3 class="track-duration-to-display" th:text="${track.getDurationToDisplay}"></h3>
     </div>
 </div>
 

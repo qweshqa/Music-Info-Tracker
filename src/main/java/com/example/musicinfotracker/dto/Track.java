@@ -66,6 +66,12 @@ public class Track {
     public void setDurationMs(int durationMs) {
         this.durationMs = durationMs;
     }
+    public String getDurationToDisplay(){
+        int minutes = (durationMs / 1000) / 60;
+        int seconds = (durationMs / 1000) % 60;
+
+        return minutes + ":" + seconds;
+    }
 
     public List<Artist> getArtists() {
         return artists;

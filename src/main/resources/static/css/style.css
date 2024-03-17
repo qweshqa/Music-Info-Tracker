@@ -102,4 +102,21 @@ a:link{
 #album-tracks h3 {
     margin-bottom: 70px;
 }
+.track-image-to-display{
+    position: relative;
 
+    width: 65px;
+
+    margin-left: 180px;
+}
+.track-artists-to-display{
+    position: relative;
+    left: 565px;
+    bottom: 93px;
+    height: fit-content;
+}
+.track-duration-to-display{
+    position: relative;
+    left: 910px;
+    bottom: 186px;
+}
