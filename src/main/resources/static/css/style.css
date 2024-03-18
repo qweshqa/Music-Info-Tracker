@@ -74,6 +74,8 @@ h4{
 
     left: 640px;
     bottom: 50px;
+
+    width: fit-content;
 }
 a:link{
     color: lightblue;
@@ -100,7 +102,7 @@ a:link{
     color: #1a1a1a;
 }
 #album-tracks h3 {
-    margin-bottom: 70px;
+    margin-bottom: 0px;
 }
 .track-image-to-display{
     position: relative;
@@ -112,11 +114,11 @@ a:link{
 .track-artists-to-display{
     position: relative;
     left: 565px;
-    bottom: 93px;
+    bottom: 42px;
     height: fit-content;
 }
 .track-duration-to-display{
     position: relative;
-    left: 910px;
-    bottom: 186px;
+    left: 880px;
+    bottom: 82px;
 }
