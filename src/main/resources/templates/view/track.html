@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="track-and-album-info-box">
+<div class="album-info-box">
     <img class="album-image" th:src="${track.getImageSource()}" alt="track image">
 
     <h3 class="album-release-date" th:text="${track.getAlbum().getReleaseDateToDisplay()}"></h3>
