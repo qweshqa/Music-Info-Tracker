@@ -26,9 +26,14 @@
     </h1>
 
     <div class="album-artists">
-    <h3>By <span th:each="artist, iterStat : ${track.getArtists()}"
-          th:text="${artist.getName() + (iterStat.last ? '' : ' &amp; ')}"></span></h3>
+        <h3>By
+            <span th:each="artist, iterStat : ${track.getArtists()}">
+                <a th:href="@{/artist/{id}(id=${artist.getId()})}" th:text="${artist.getName()}"></a>
+                <span th:if="${!iterStat.last}"> &amp; </span>
+            </span>
+        </h3>
     </div>
+
 </div>
 
 
