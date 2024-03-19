@@ -70,6 +70,9 @@ public class Track {
         int minutes = (durationMs / 1000) / 60;
         int seconds = (durationMs / 1000) % 60;
 
+        if(seconds < 10){
+            return minutes + ":0" + seconds;
+        }
         return minutes + ":" + seconds;
     }
 
