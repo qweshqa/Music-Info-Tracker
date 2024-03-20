@@ -122,3 +122,9 @@ a:link{
     left: 880px;
     bottom: 82px;
 }
+#album-tracks-in-total{
+    position: relative;
+    bottom: 50px;
+    left: 10px;
+    color: #626262;
+}

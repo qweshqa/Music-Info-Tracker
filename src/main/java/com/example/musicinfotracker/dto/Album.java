@@ -10,17 +10,20 @@ public class Album {
     private String name;
     private String imageSource;
     private LocalDate releaseDate;
+    private int totalTracks;
     private List<Track> tracks;
     private List<Artist> artists;
 
     public Album(){
 
     }
-    public Album(String id, String name, String imageSource, LocalDate releaseDate, List<Track> tracks, List<Artist> artists) {
+    public Album(String id, String name, String imageSource, LocalDate releaseDate,
+                 int totalTracks, List<Track> tracks, List<Artist> artists) {
         this.id = id;
         this.name = name;
         this.imageSource = imageSource;
         this.releaseDate = releaseDate;
+        this.totalTracks = totalTracks;
         this.tracks = tracks;
         this.artists = artists;
     }
@@ -62,6 +65,10 @@ public class Album {
 
         return releaseDate.format(formatter);
     }
+
+    public int getTotalTracks() { return totalTracks; }
+
+    public void setTotalTracks(int totalTracks) { this.totalTracks = totalTracks; }
 
     public List<Track> getTracks() {
         return tracks;
