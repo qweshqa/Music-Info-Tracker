@@ -104,6 +104,16 @@ a:link{
 #album-tracks h3 {
     margin-bottom: 0px;
 }
+#track-number-in-album{
+    position: relative;
+    top: 70px
+}
+#track-name-in-album{
+    position: relative;
+    left: 250px;
+    bottom: 40px;
+    width: 315px;
+}
 .track-image-to-display{
     position: relative;
 
@@ -114,7 +124,7 @@ a:link{
 .track-artists-to-display{
     position: relative;
     left: 565px;
-    bottom: 42px;
+    bottom: 80px;
     height: fit-content;
 }
 .track-duration-to-display{
@@ -124,13 +134,13 @@ a:link{
 }
 #album-tracks-in-total{
     position: relative;
-    bottom: 90px;
+    bottom: 50px;
     left: 10px;
     color: #626262;
 }
 #album-type{
     position: relative;
-    bottom: 300px;
+    bottom: 440px;
     left: 640px;
     color: #626262;
 }

@@ -18,8 +18,6 @@
 
     <h3 class="album-release-date" th:text="${'Release date: ' + album.getReleaseDateToDisplay()}"></h3>
 
-    <h3 id="album-type" th:text="${'Album type: ' + album.getAlbum_type()}"></h3>
-
     <h1 id="track-name-and-album" th:text="${album.getName()}"></h1>
 
     <div class="album-artists">
@@ -33,6 +31,8 @@
 
     <h3 id="album-tracks-in-total" th:text="${'Tracks in total: ' + album.getTotalTracks()}"></h3>
 
+    <h3 id="album-type" th:text="${'Album type: ' + album.getAlbum_type()}"></h3>
+
 </div>
 <div id="album-tracks-origin">
     <h4>№
@@ -43,11 +43,9 @@
 </div>
 <div id="album-tracks">
     <div id="album-track" th:each="track : ${album.getTracks()}">
-        <h3>
-            <span th:text="${track.getTrackNumberInAlbum()}"></span>
-            <img class="track-image-to-display" th:src="${track.getImageSource()}" alt="track image">
-            <span th:text="${track.getName()}"></span>
-        </h3>
+        <h3 id="track-number-in-album" th:text="${track.getTrackNumberInAlbum()}"></h3>
+        <img class="track-image-to-display" th:src="${album.getImageSource()}" alt="track image">
+        <h3 id="track-name-in-album" th:text="${track.getName()}"></h3>
         <h3 class="track-artists-to-display">
             <span th:each="artist, iterStat : ${track.getArtists()}">
                 <a th:href="@{/artist/{id}(id=${artist.getId()})}" th:text="${artist.getName()}"></a>
