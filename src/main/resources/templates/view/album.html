@@ -16,7 +16,9 @@
 
     <img class="album-image" th:src="${album.getImageSource()}" alt="album image">
 
-    <h3 class="album-release-date" th:text="${album.getReleaseDateToDisplay()}"></h3>
+    <h3 class="album-release-date" th:text="${'Release date: ' + album.getReleaseDateToDisplay()}"></h3>
+
+    <h3 id="album-type" th:text="${'Album type: ' + album.getAlbum_type()}"></h3>
 
     <h1 id="track-name-and-album" th:text="${album.getName()}"></h1>
 
