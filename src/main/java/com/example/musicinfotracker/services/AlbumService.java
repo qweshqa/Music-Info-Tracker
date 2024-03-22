@@ -95,7 +95,7 @@ public class AlbumService {
                 albumTracks.add(track);
             }
             foundAlbum.setTracks(albumTracks);
-            foundAlbum.setLabelName(jsonNode.get("label").asText());
+            foundAlbum.setLabelInfo(jsonNode.get("copyrights").get(0).get("text").asText());
 
             return foundAlbum;
         }
