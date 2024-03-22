@@ -14,12 +14,13 @@ public class Album {
     private int totalTracks;
     private List<Track> tracks;
     private List<Artist> artists;
+    private String labelName;
 
     public Album(){
 
     }
     public Album(String id, String name, String album_type, String imageSource, LocalDate releaseDate,
-                 int totalTracks, List<Track> tracks, List<Artist> artists) {
+                 int totalTracks, List<Track> tracks, List<Artist> artists, String labelName) {
         this.id = id;
         this.name = name;
         this.album_type = album_type;
@@ -28,6 +29,7 @@ public class Album {
         this.totalTracks = totalTracks;
         this.tracks = tracks;
         this.artists = artists;
+        this.labelName = labelName;
     }
 
     public String getId() {
@@ -90,5 +92,13 @@ public class Album {
 
     public void setArtists(List<Artist> artists) {
         this.artists = artists;
+    }
+
+    public String getLabelName() {
+        return labelName;
+    }
+
+    public void setLabelName(String labelName) {
+        this.labelName = labelName;
     }
 }

@@ -84,7 +84,7 @@ a:link{
     text-align: left;
     position: relative;
 
-    left: 250px;
+    left: 230px;
 }
 .track-param-artists{
     text-align: left;
@@ -130,7 +130,7 @@ a:link{
 .track-duration-to-display{
     position: relative;
     left: 880px;
-    bottom: 82px;
+    bottom: 120px;
 }
 #album-tracks-in-total{
     position: relative;
@@ -142,5 +142,11 @@ a:link{
     position: relative;
     bottom: 440px;
     left: 640px;
+    color: #626262;
+}
+#album-label{
+    position: relative;
+    bottom: 560px;
+    left: 10px;
     color: #626262;
 }
