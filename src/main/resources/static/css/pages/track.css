@@ -1,0 +1,39 @@
+.album-info-box{
+    background-color: #1a1a1a;
+    height: 480px;
+    width: auto;
+}
+.album-image{
+    border-style: solid;
+    border-color: white;
+    width: 320px;
+    height: 320px;
+
+    position: relative;
+
+    top: 60px;
+    left: 300px;
+}
+.album-release-date{
+    color: #626262;
+    width: fit-content;
+
+    position: relative;
+
+    left: 640px;
+    bottom: 290px;
+}
+#track-name-and-album{
+    position: relative;
+
+    left: 640px;
+    bottom: 40px;
+}
+.album-artists{
+    position: relative;
+
+    left: 640px;
+    bottom: 50px;
+
+    width: fit-content;
+}

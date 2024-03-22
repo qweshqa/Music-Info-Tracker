@@ -1,0 +1,106 @@
+.album-info-box{
+    background-color: #1a1a1a;
+    height: 480px;
+    width: auto;
+}
+.album-image{
+    border-style: solid;
+    border-color: white;
+    width: 320px;
+    height: 320px;
+
+    position: relative;
+
+    top: 60px;
+    left: 300px;
+}
+.album-release-date{
+    color: #626262;
+    width: fit-content;
+
+    position: relative;
+
+    left: 640px;
+    bottom: 290px;
+}
+#track-name-and-album{
+    position: relative;
+
+    left: 640px;
+    bottom: 40px;
+}
+.album-artists{
+    position: relative;
+
+    left: 640px;
+    bottom: 50px;
+
+    width: fit-content;
+}
+#album-tracks-in-total{
+    position: relative;
+    bottom: 50px;
+    left: 10px;
+    color: #626262;
+}
+#album-type{
+    position: relative;
+    bottom: 440px;
+    left: 640px;
+    color: #626262;
+}
+#album-label{
+    position: relative;
+    bottom: 560px;
+    left: 10px;
+    color: #626262;
+}
+#album-tracks-origin h4{
+    color: lightblue;
+}
+.track-param-name{
+    text-align: left;
+    position: relative;
+
+    left: 230px;
+}
+.track-param-artists{
+    text-align: left;
+    position: relative;
+
+    left: 500px;
+}
+.track-param-duration{
+    text-align: left;
+    position: relative;
+
+    left: 750px;
+}
+#track-number-in-album{
+    position: relative;
+    top: 70px
+}
+.track-image-to-display{
+    position: relative;
+
+    width: 65px;
+
+    margin-left: 180px;
+}
+#track-name-in-album{
+    position: relative;
+    left: 250px;
+    bottom: 40px;
+    width: 315px;
+}
+.track-artists-to-display{
+    position: relative;
+    left: 565px;
+    bottom: 80px;
+    height: fit-content;
+}
+.track-duration-to-display{
+    position: relative;
+    left: 880px;
+    bottom: 120px;
+}
