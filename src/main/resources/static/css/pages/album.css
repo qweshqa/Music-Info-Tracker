@@ -92,6 +92,8 @@
     left: 250px;
     bottom: 40px;
     width: 315px;
+
+    color: lightblue;
 }
 .track-artists-to-display{
     position: relative;
