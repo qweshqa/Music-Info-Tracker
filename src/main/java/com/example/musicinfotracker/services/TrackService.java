@@ -18,6 +18,7 @@ import java.net.http.HttpResponse;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class TrackService {
@@ -74,5 +75,38 @@ public class TrackService {
         }
         throw new TrackNotFoundException();
 
+    }
+    public List<Track> getRecommendedTracks(String seed_trackId) throws IOException, InterruptedException{
+        String requestUrl = "https://api.spotify.com/v1/recommendations";
+        String requestBody = "seed_tracks=" + seed_trackId;
+
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(requestUrl + "?" + requestBody))
+                .header("Authorization", "Bearer " + accessToken)
+                .GET()
+                .build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        if(response.statusCode() == 200){
+            ObjectMapper objectMapper = new ObjectMapper();
+            JsonNode jsonNode = objectMapper.readTree(response.body());
+
+            List<Track> foundTracks = new ArrayList<>();
+
+            for(int i = 0; i < jsonNode.get("tracks").size(); i++){
+                Track track = new Track();
+
+                track.setId(jsonNode.get("tracks").get(i).get("id").asText());
+                track.setName(jsonNode.get("tracks").get(i).get("name").asText());
+                track.setImageSource(jsonNode.get("tracks").get(i).get("album").get("images").get(1).get("url").asText());
+
+                foundTracks.add(track);
+            }
+
+            return foundTracks;
+        }
+        throw new IllegalArgumentException();
     }
 }
