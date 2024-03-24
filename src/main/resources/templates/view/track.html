@@ -13,12 +13,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="album-info-box">
-    <img class="album-image" th:src="${track.getImageSource()}" alt="track image">
+<div class="track">
+    <img class="track__image" th:src="${track.getImageSource()}" alt="track image">
 
-    <h3 class="album-release-date" th:text="${track.getAlbum().getReleaseDateToDisplay()}"></h3>
+    <h3 class="track__release-date" th:text="${track.getAlbum().getReleaseDateToDisplay()}"></h3>
 
-    <h1 id="track-name-and-album">
+    <h1 class="track__name-and-album">
         <span th:text="${track.getName()}"></span>
         (
         <a th:href="@{/albums/{id}(id=${track.getAlbum().getId()})}">
@@ -27,7 +27,7 @@
         )
     </h1>
 
-    <div class="album-artists">
+    <div class="track__artists">
         <h3>By
             <span th:each="artist, iterStat : ${track.getArtists()}">
                 <a th:href="@{/artist/{id}(id=${artist.getId()})}" th:text="${artist.getName()}"></a>
@@ -41,7 +41,7 @@
 
 <div id="recommendations">
     <div class="track-container">
-        <div class="track" th:each="recommendedTrack : ${recommendations}">
+        <div class="track-container__track" th:each="recommendedTrack : ${recommendations}">
             <a th:href="@{/track/{id}(id=${recommendedTrack.getId()})}">
                 <img th:src="${recommendedTrack.getImageSource()}" alt="track image">
                 <h3 th:text="${recommendedTrack.getName()}"></h3>

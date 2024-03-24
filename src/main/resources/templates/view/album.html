@@ -14,15 +14,15 @@
 </head>
 <body>
 
-<div class="album-info-box">
+<div class="album">
 
-    <img class="album-image" th:src="${album.getImageSource()}" alt="album image">
+    <img class="album__image album__image--border" th:src="${album.getImageSource()}" alt="album image">
 
-    <h3 class="album-release-date" th:text="${'Release date: ' + album.getReleaseDateToDisplay()}"></h3>
+    <h3 class="album__release-date album--details-color" th:text="${'Release date: ' + album.getReleaseDateToDisplay()}"></h3>
 
-    <h1 id="track-name-and-album" th:text="${album.getName()}"></h1>
+    <h1 class="album__name" th:text="${album.getName()}"></h1>
 
-    <div class="album-artists">
+    <div class="album__artists">
         <h3>By
             <span th:each="artist, iterStat : ${album.getArtists()}">
                 <a th:href="@{/artist/{id}(id=${artist.getId()})}" th:text="${artist.getName()}"></a>
@@ -31,34 +31,41 @@
         </h3>
     </div>
 
-    <h3 id="album-tracks-in-total" th:text="${'Tracks in total: ' + album.getTotalTracks()}"></h3>
+    <h3 class="album__total-tracks album--details-color" th:text="${'Tracks in total: ' + album.getTotalTracks()}"></h3>
 
-    <h3 id="album-type" th:text="${'Album type: ' + album.getAlbum_type()}"></h3>
+    <h3 class="album__type album--details-color" th:text="${'Album type: ' + album.getAlbum_type()}"></h3>
 
-    <h3 id="album-label" th:text="${'Label: ' + album.getLabelInfo()}"></h3>
+    <h3 class="album__label album--details-color" th:text="${'Label: ' + album.getLabelInfo()}"></h3>
 
 </div>
-<div id="album-tracks-origin">
-    <h4>№
-        <span class="track-param-name">Name</span>
-        <span class="track-param-artists">Artists</span>
-        <span class="track-param-duration">Duration</span>
+
+<div class="album__track-origin">
+    <h4>
+        <span class="album__track-origin__param">№</span>
+        <span class="album__track-origin__param">Name</span>
+        <span class="album__track-origin__param">Artists</span>
+        <span class="album__track-origin__param">Duration</span>
     </h4>
 </div>
-<div id="album-tracks">
-    <div id="album-track" th:each="track : ${album.getTracks()}">
-        <h3 id="track-number-in-album" th:text="${track.getTrackNumberInAlbum()}"></h3>
-        <img class="track-image-to-display" th:src="${album.getImageSource()}" alt="track image">
-        <a th:href="@{/track/{id}(id=${track.getId()})}">
-            <h3 id="track-name-in-album" th:text="${track.getName()}"></h3>
-        </a>
-        <h3 class="track-artists-to-display">
+
+<div class="tracks">
+    <div class="track" th:each="track : ${album.getTracks()}">
+        <h3 class="track__number" th:text="${track.getTrackNumberInAlbum()}"></h3>
+
+        <img class="track__image" th:src="${album.getImageSource()}" alt="track image">
+
+        <h3 class="track__name">
+            <a th:href="@{/track/{id}(id=${track.getId()})}" th:text="${track.getName()}"></a>
+        </h3>
+
+        <h3 class="track__artists">
             <span th:each="artist, iterStat : ${track.getArtists()}">
                 <a th:href="@{/artist/{id}(id=${artist.getId()})}" th:text="${artist.getName()}"></a>
                 <span th:if="${!iterStat.last}">, </span>
             </span>
         </h3>
-        <h3 class="track-duration-to-display" th:text="${track.getDurationToDisplay}"></h3>
+
+        <h3 class="track__duration" th:text="${track.getDurationToDisplay}"></h3>
     </div>
 </div>
 

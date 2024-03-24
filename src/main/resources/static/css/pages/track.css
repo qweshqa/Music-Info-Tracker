@@ -1,9 +1,9 @@
-.album-info-box{
+.track{
     background-color: #1a1a1a;
     height: 480px;
     width: auto;
 }
-.album-image{
+.track__image{
     border-style: solid;
     border-color: white;
     width: 320px;
@@ -14,7 +14,7 @@
     top: 60px;
     left: 300px;
 }
-.album-release-date{
+.track__release-date{
     color: #626262;
     width: fit-content;
 
@@ -23,13 +23,13 @@
     left: 640px;
     bottom: 290px;
 }
-#track-name-and-album{
+.track__name-and-album{
     position: relative;
 
     left: 640px;
     bottom: 40px;
 }
-.album-artists{
+.track__artists{
     position: relative;
 
     left: 640px;
@@ -54,11 +54,11 @@
     flex-wrap: wrap;
     justify-content: flex-start;
 }
-.track {
+.track-container__track {
     width: 225px;
     padding: 30px;
     background-color: #1a1a1a;
 }
-.track img{
+.track-container__track img{
     width: 225px
 }

@@ -1,11 +1,9 @@
-.album-info-box{
+.album{
     background-color: #1a1a1a;
     height: 480px;
     width: auto;
 }
-.album-image{
-    border-style: solid;
-    border-color: white;
+.album__image{
     width: 320px;
     height: 320px;
 
@@ -14,8 +12,14 @@
     top: 60px;
     left: 300px;
 }
-.album-release-date{
+.album__image--border{
+    border-style: solid;
+    border-color: white;
+}
+.album--details-color{
     color: #626262;
+}
+.album__release-date{
     width: fit-content;
 
     position: relative;
@@ -23,13 +27,13 @@
     left: 640px;
     bottom: 290px;
 }
-#track-name-and-album{
+.album__name{
     position: relative;
 
     left: 640px;
     bottom: 40px;
 }
-.album-artists{
+.album__artists{
     position: relative;
 
     left: 640px;
@@ -37,71 +41,51 @@
 
     width: fit-content;
 }
-#album-tracks-in-total{
+.album__total-tracks{
     position: relative;
     bottom: 50px;
     left: 10px;
-    color: #626262;
 }
-#album-type{
+.album__type{
     position: relative;
     bottom: 440px;
     left: 640px;
-    color: #626262;
 }
-#album-label{
+.album__label{
     position: relative;
     bottom: 560px;
     left: 10px;
-    color: #626262;
 }
-#album-tracks-origin h4{
-    color: lightblue;
-}
-.track-param-name{
+.album__track-origin__param{
     text-align: left;
     position: relative;
 
-    left: 230px;
+    margin-right: 250px;
 }
-.track-param-artists{
-    text-align: left;
-    position: relative;
-
-    left: 500px;
-}
-.track-param-duration{
-    text-align: left;
-    position: relative;
-
-    left: 750px;
-}
-#track-number-in-album{
+.track__number{
     position: relative;
     top: 70px
 }
-.track-image-to-display{
+.track__image{
     position: relative;
 
     width: 65px;
 
     margin-left: 180px;
 }
-#track-name-in-album{
+.track__name{
     position: relative;
     left: 250px;
     bottom: 40px;
     width: 315px;
-
-    color: lightblue;
 }
-.track-artists-to-display{
+.track__artists{
     position: relative;
     left: 565px;
     bottom: 80px;
     height: fit-content;
 }
-.track-duration-to-display{
+.track__duration{
     position: relative;
     left: 880px;
     bottom: 120px;
