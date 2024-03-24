@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequestMapping("/track")
@@ -25,13 +26,17 @@ public class TrackController {
     @GetMapping("/{id}")
     public String viewTrack(@PathVariable("id") String id, Model model) throws IOException, InterruptedException {
         Track track;
+        List<Track> recommendedTracks;
         try{
             track = trackService.getTrack(id);
+            recommendedTracks = trackService.getRecommendedTracks(track.getId());
         } catch (TrackNotFoundException ignored){
             model.addAttribute("errorMsg", "Track with this id does not exist");
             return "errorPage";
         }
         model.addAttribute("track", track);
+        model.addAttribute("recommendations", recommendedTracks);
+
         return "view/track";
     }
 }

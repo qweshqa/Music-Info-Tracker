@@ -37,3 +37,28 @@
 
     width: fit-content;
 }
+#recommendation-title{
+    position: relative;
+    left: 640px;
+    top: 25px;
+}
+
+.track-container {
+    position: relative;
+    top: 50px;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.track {
+    width: 225px;
+    padding: 30px;
+    background-color: #1a1a1a;
+}
+.track img{
+    width: 225px
+}

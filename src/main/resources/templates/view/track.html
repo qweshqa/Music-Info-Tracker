@@ -35,7 +35,19 @@
             </span>
         </h3>
     </div>
+</div>
 
+<h3 id="recommendation-title">Recommendations:</h3>
+
+<div id="recommendations">
+    <div class="track-container">
+        <div class="track" th:each="recommendedTrack : ${recommendations}">
+            <a th:href="@{/track/{id}(id=${recommendedTrack.getId()})}">
+                <img th:src="${recommendedTrack.getImageSource()}" alt="track image">
+                <h3 th:text="${recommendedTrack.getName()}"></h3>
+            </a>
+        </div>
+    </div>
 </div>
 
 
