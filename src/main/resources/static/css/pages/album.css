@@ -60,33 +60,47 @@
     text-align: left;
     position: relative;
 
-    margin-right: 250px;
+    margin-right: 320px;
+}
+.track{
+    height: 100px;
+    background-color: #1a1a1a;
 }
 .track__number{
     position: relative;
-    top: 70px
+    left: 10px;
+    top: 45px;
 }
 .track__image{
     position: relative;
+    bottom: 20px;
 
-    width: 65px;
+    width: 60px;
 
-    margin-left: 180px;
+    margin-left: 40px;
 }
 .track__name{
     position: relative;
-    left: 250px;
-    bottom: 40px;
-    width: 315px;
+    left: 330px;
+    bottom: 80px;
+
+    max-width: 350px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .track__artists{
     position: relative;
-    left: 565px;
-    bottom: 80px;
-    height: fit-content;
+    left: 700px;
+    bottom: 120px;
+
+    max-width: 351px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .track__duration{
     position: relative;
-    left: 880px;
-    bottom: 120px;
+    left: 1080px;
+    bottom: 160px;
 }
