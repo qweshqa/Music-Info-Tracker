@@ -63,26 +63,28 @@
     margin-right: 320px;
 }
 .track{
-    height: 100px;
+    height: 70px;
+}
+.track:hover{
     background-color: #1a1a1a;
 }
 .track__number{
     position: relative;
     left: 10px;
-    top: 45px;
+    top: 25px;
 }
 .track__image{
     position: relative;
-    bottom: 20px;
+    bottom: 37px;
 
     width: 60px;
 
-    margin-left: 40px;
+    margin-left: 255px;
 }
 .track__name{
     position: relative;
     left: 330px;
-    bottom: 80px;
+    bottom: 100px;
 
     max-width: 350px;
     white-space: nowrap;
@@ -92,7 +94,7 @@
 .track__artists{
     position: relative;
     left: 700px;
-    bottom: 120px;
+    bottom: 140px;
 
     max-width: 351px;
     white-space: nowrap;
@@ -102,5 +104,5 @@
 .track__duration{
     position: relative;
     left: 1080px;
-    bottom: 160px;
+    bottom: 180px;
 }
