@@ -106,3 +106,8 @@
     left: 1080px;
     bottom: 180px;
 }
+.track__audio_preview{
+    position: relative;
+    bottom: 240px;
+    left: 1170px;
+}
