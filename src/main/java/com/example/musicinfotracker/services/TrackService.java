@@ -102,6 +102,18 @@ public class TrackService {
                 track.setName(jsonNode.get("tracks").get(i).get("name").asText());
                 track.setImageSource(jsonNode.get("tracks").get(i).get("album").get("images").get(1).get("url").asText());
 
+                List<Artist> artists = new ArrayList<>();
+                JsonNode artistNode = jsonNode.get("tracks").get(i).get("artists");
+                for(int j = 0; j < artistNode.size(); j++){
+                    Artist artist = new Artist();
+
+                    artist.setName(artistNode.get(j).get("name").asText());
+                    artist.setId(artistNode.get(j).get("id").asText());
+
+                    artists.add(artist);
+                }
+                track.setArtists(artists);
+
                 foundTracks.add(track);
             }
 

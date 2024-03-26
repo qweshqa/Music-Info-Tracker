@@ -28,6 +28,16 @@
 
     left: 640px;
     bottom: 40px;
+
+    overflow: hidden;
+}
+.track__name,
+.track__album{
+    max-width: 380px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
 }
 .track__artists{
     position: relative;
@@ -57,8 +67,24 @@
 .track-container__track {
     width: 225px;
     padding: 30px;
+    padding-bottom: 0px;
+    background-color: #0a0a0a;
+}
+.track-container__track:hover{
     background-color: #1a1a1a;
+}
+.track-container__track__name{
+    max-width: 230px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .track-container__track img{
     width: 225px
+}
+.track-container__track__artists{
+    max-width: 230px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

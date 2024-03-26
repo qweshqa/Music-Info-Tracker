@@ -19,12 +19,12 @@
     <h3 class="track__release-date" th:text="${track.getAlbum().getReleaseDateToDisplay()}"></h3>
 
     <h1 class="track__name-and-album">
-        <span th:text="${track.getName()}"></span>
-        (
-        <a th:href="@{/albums/{id}(id=${track.getAlbum().getId()})}">
+        <span class="track__name" th:text="${track.getName()}"></span>
+        <span style="position: relative; bottom: 10px;">(</span>
+        <a class="track__album" th:href="@{/albums/{id}(id=${track.getAlbum().getId()})}">
             <span th:text="${track.getAlbum().getName()}"></span>
         </a>
-        )
+        <span style="position: relative; bottom: 10px;">)</span>
     </h1>
 
     <div class="track__artists">
@@ -44,8 +44,14 @@
         <div class="track-container__track" th:each="recommendedTrack : ${recommendations}">
             <a th:href="@{/track/{id}(id=${recommendedTrack.getId()})}">
                 <img th:src="${recommendedTrack.getImageSource()}" alt="track image">
-                <h3 th:text="${recommendedTrack.getName()}"></h3>
+                <h3 class="track-container__track__name" th:text="${recommendedTrack.getName()}"></h3>
             </a>
+                <h4 class="track-container__track__artists">
+                    <span th:each="artist, iterStat : ${recommendedTrack.getArtists()}">
+                        <a th:href="@{/artist/{id}(id=${artist.getId()})}" th:text="${artist.getName()}"></a>
+                        <span th:if="${!iterStat.last}">, </span>
+                    </span>
+                </h4>
         </div>
     </div>
 </div>
