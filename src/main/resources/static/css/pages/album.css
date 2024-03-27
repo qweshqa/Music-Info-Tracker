@@ -64,6 +64,8 @@
 }
 .album_tracks__track{
     height: 70px;
+    overflow: hidden;
+    margin-bottom: 20px;
 }
 .album_tracks__track:hover{
     background-color: #1a1a1a;
@@ -71,20 +73,20 @@
 .album_tracks__track__number{
     position: relative;
     left: 10px;
-    top: 25px;
+    top: 5px;
 }
 .album_tracks__track__image{
     position: relative;
-    bottom: 37px;
+    bottom: 55px;
 
     width: 60px;
 
-    margin-left: 255px;
+    left: 255px;
 }
 .album_tracks__track__name{
     position: relative;
     left: 330px;
-    bottom: 100px;
+    bottom: 120px;
 
     max-width: 350px;
     white-space: nowrap;
@@ -94,7 +96,7 @@
 .album_tracks__track__artists{
     position: relative;
     left: 700px;
-    bottom: 140px;
+    bottom: 160px;
 
     max-width: 351px;
     white-space: nowrap;
@@ -104,10 +106,10 @@
 .album_tracks__track__duration{
     position: relative;
     left: 1080px;
-    bottom: 180px;
+    bottom: 200px;
 }
 .album_tracks__track__audio{
     position: relative;
-    bottom: 240px;
+    bottom: 259px;
     left: 1170px;
 }
