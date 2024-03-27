@@ -39,14 +39,14 @@
 
 <h3 id="recommendation-title">Recommendations:</h3>
 
-<div id="recommendations">
-    <div class="track-container">
-        <div class="track-container__track" th:each="recommendedTrack : ${recommendations}">
+<div id="track-recommendations">
+    <div class="recommended_track_container">
+        <div class="recommended_track_container__track" th:each="recommendedTrack : ${recommendations}">
             <a th:href="@{/track/{id}(id=${recommendedTrack.getId()})}">
                 <img th:src="${recommendedTrack.getImageSource()}" alt="track image">
-                <h3 class="track-container__track__name" th:text="${recommendedTrack.getName()}"></h3>
+                <h3 class="recommended_track_container__track__name" th:text="${recommendedTrack.getName()}"></h3>
             </a>
-                <h4 class="track-container__track__artists">
+                <h4 class="recommended_track_container__track__artists">
                     <span th:each="artist, iterStat : ${recommendedTrack.getArtists()}">
                         <a th:href="@{/artist/{id}(id=${artist.getId()})}" th:text="${artist.getName()}"></a>
                         <span th:if="${!iterStat.last}">, </span>

@@ -39,36 +39,36 @@
 
 </div>
 
-<div class="album__track-origin">
+<div class="album_track_origin">
     <h4>
-        <span class="album__track-origin__param" style="left: 10px;">#</span>
-        <span class="album__track-origin__param">Name</span>
-        <span class="album__track-origin__param">Artists</span>
-        <span class="album__track-origin__param">Duration</span>
+        <span class="album_track_origin__param" style="left: 10px;">#</span>
+        <span class="album_track_origin__param">Name</span>
+        <span class="album_track_origin__param">Artists</span>
+        <span class="album_track_origin__param">Duration</span>
     </h4>
 </div>
 
-<div class="tracks">
-    <div class="track" th:each="track : ${album.getTracks()}">
-        <h3 class="track__number" th:text="${track.getTrackNumberInAlbum()}"></h3>
+<div class="album_tracks">
+    <div class="album_tracks__track" th:each="track : ${album.getTracks()}">
+        <h3 class="album_tracks__track__number" th:text="${track.getTrackNumberInAlbum()}"></h3>
 
-        <img class="track__image" th:src="${album.getImageSource()}" alt="track image">
+        <img class="album_tracks__track__image" th:src="${album.getImageSource()}" alt="track image">
 
-        <h3 class="track__name">
+        <h3 class="album_tracks__track__name">
             <a th:href="@{/track/{id}(id=${track.getId()})}" th:text="${track.getName()}"></a>
         </h3>
 
-        <h3 class="track__artists">
+        <h3 class="album_tracks__track__artists">
             <span th:each="artist, iterStat : ${track.getArtists()}">
                 <a th:href="@{/artist/{id}(id=${artist.getId()})}" th:text="${artist.getName()}"></a>
                 <span th:if="${!iterStat.last}">, </span>
             </span>
         </h3>
 
-        <h3 class="track__duration" th:text="${track.getDurationToDisplay}"></h3>
+        <h3 class="album_tracks__track__duration" th:text="${track.getDurationToDisplay}"></h3>
 
-        <audio controls class="track__audio_preview">
-            <source th:src="${track.getPreview_url()}" type="audio/mpeg">
+        <audio controls class="album_tracks__track__audio">
+            <source th:src="${track.getPreview_url()}">
         </audio>
     </div>
 </div>
