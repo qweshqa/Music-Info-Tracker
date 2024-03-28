@@ -13,6 +13,8 @@
 
     top: 25px;
     left: 300px;
+
+    display: block;
 }
 .track__release-date{
     color: #626262;
@@ -47,6 +49,11 @@
     font-size: 10px;
 
     width: fit-content;
+}
+.track__audio{
+    position: relative;
+    bottom: 360px;
+    left: 740px;
 }
 #recommendation-title{
     position: relative;

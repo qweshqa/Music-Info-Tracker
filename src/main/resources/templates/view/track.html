@@ -52,6 +52,10 @@
             </span>
         </h1>
     </div>
+
+    <audio controls class="track__audio">
+        <source th:src="${track.getPreview_url()}">
+    </audio>
 </div>
 
 <h3 id="recommendation-title">Recommendations:</h3>
