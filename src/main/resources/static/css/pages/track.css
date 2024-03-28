@@ -6,12 +6,12 @@
 .track__image{
     border-style: solid;
     border-color: white;
-    width: 320px;
-    height: 320px;
+    width: 420px;
+    height: 420px;
 
     position: relative;
 
-    top: 60px;
+    top: 25px;
     left: 300px;
 }
 .track__release-date{
@@ -20,30 +20,31 @@
 
     position: relative;
 
-    left: 640px;
-    bottom: 290px;
+    left: 740px;
+    bottom: 420px;
 }
-.track__name-and-album{
+.track__name{
+    position: relative;
+    font-size: 50px;
+    bottom: 330px;
+    left: 740px;
+}
+.track__album{
     position: relative;
 
-    left: 640px;
-    bottom: 40px;
+    bottom: 300px;
+    left: 745px;
 
-    overflow: hidden;
-}
-.track__name,
-.track__album{
-    max-width: 380px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    display: inline-block;
+    font-size: 10px;
+    width: fit-content;
 }
 .track__artists{
     position: relative;
 
-    left: 640px;
-    bottom: 50px;
+    left: 745px;
+    bottom: 360px;
+
+    font-size: 10px;
 
     width: fit-content;
 }

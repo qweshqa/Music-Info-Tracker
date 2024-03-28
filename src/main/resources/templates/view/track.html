@@ -33,24 +33,24 @@
 <div class="track">
     <img class="track__image" th:src="${track.getImageSource()}" alt="track image">
 
-    <h3 class="track__release-date" th:text="${track.getAlbum().getReleaseDateToDisplay()}"></h3>
+    <h3 class="track__release-date" th:text="${'Release date: ' + track.getAlbum().getReleaseDateToDisplay()}"></h3>
 
-    <h1 class="track__name-and-album">
-        <span class="track__name" th:text="${track.getName()}"></span>
-        <span style="position: relative; bottom: 10px;">(</span>
-        <a class="track__album" th:href="@{/albums/{id}(id=${track.getAlbum().getId()})}">
-            <span th:text="${track.getAlbum().getName()}"></span>
-        </a>
-        <span style="position: relative; bottom: 10px;">)</span>
-    </h1>
+    <div class="track__album">
+        <h1>
+            Album:
+            <a th:href="@{/albums/{id}(id=${track.getAlbum().getId()})}" th:text="${track.getAlbum().getName()}"></a>
+        </h1>
+    </div>
+
+    <h1 class="track__name" th:text="${track.getName()}"></h1>
 
     <div class="track__artists">
-        <h3>By
+        <h1>By
             <span th:each="artist, iterStat : ${track.getArtists()}">
                 <a th:href="@{/artist/{id}(id=${artist.getId()})}" th:text="${artist.getName()}"></a>
                 <span th:if="${!iterStat.last}"> &amp; </span>
             </span>
-        </h3>
+        </h1>
     </div>
 </div>
 
