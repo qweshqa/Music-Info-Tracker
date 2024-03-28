@@ -4,10 +4,7 @@ import com.example.musicinfotracker.dto.Album;
 import com.example.musicinfotracker.dto.Artist;
 import com.example.musicinfotracker.dto.Track;
 import com.example.musicinfotracker.services.SearchService;
-import com.example.musicinfotracker.utils.ArtistNotFoundException;
-import com.example.musicinfotracker.utils.TrackNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,7 +26,7 @@ public class MainController {
 
     @GetMapping()
     public String mainPage(){
-        return "mainPage";
+        return "home";
     }
 
 

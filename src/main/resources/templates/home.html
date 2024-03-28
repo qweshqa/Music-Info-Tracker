@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:text="${artist.getName()}"></title>
+    <title>Music Info Tracker</title>
 
     <link rel="stylesheet" href="/css/main.css" type="text/css"/>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
-
 </head>
-
+<body>
 <header class="header">
 
     <form class="header__search" name="f" method="get" th:action="@{/musicInfoTracker/search}">
@@ -32,12 +30,9 @@
 
 </header>
 
-<body>
-<img th:src="${artist.getImageSource()}" alt="artist's image">
+<div id="website-name">
+    <h1>Music Info Tracker</h1>
+</div>
 
-<h1 th:text="${artist.getName()}">artist's name</h1>
-
-<h3 th:text="${'followers: ' + artist.getFollowers()}">followers</h3>
-<h3 th:text="${'main genres: ' + artist.getGenres()}">genres</h3>
 </body>
 </html>
