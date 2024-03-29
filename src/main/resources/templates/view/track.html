@@ -58,6 +58,8 @@
     <audio controls class="track__audio">
         <source th:src="${track.getPreview_url()}">
     </audio>
+
+    <h1 class="track__duration" th:text="${track.getDurationToDisplay()}"></h1>
 </div>
 
 <h3 id="recommendation-title">Recommendations:</h3>

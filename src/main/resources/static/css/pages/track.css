@@ -62,6 +62,12 @@
     bottom: 360px;
     left: 740px;
 }
+.track__duration{
+    position: relative;
+    bottom: 420px;
+    left: 1050px;
+    font-size: 20px;
+}
 #recommendation-title{
     position: relative;
     left: 640px;

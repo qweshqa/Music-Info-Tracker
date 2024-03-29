@@ -57,6 +57,7 @@ public class TrackService {
             track.getAlbum().setName(jsonNode.get("album").get("name").asText());
             track.getAlbum().setId(jsonNode.get("album").get("id").asText());
             track.setTrackNumberInAlbum(jsonNode.get("track_number").asInt());
+            track.setDurationMs(jsonNode.get("duration_ms").asInt());
             track.setId(jsonNode.get("id").asText());
             track.setPreview_url(jsonNode.get("preview_url").asText());
             track.setImageSource(jsonNode.get("album").get("images").get(0).get("url").asText());
