@@ -36,12 +36,12 @@
 
     <h3 class="album__release-date album--details-color" th:text="${'Release date: ' + album.getReleaseDateToDisplay()}"></h3>
 
-    <h1 class="album__name" th:text="${album.getName()}"></h1>
+    <h1 class="album__name" th:text="${album.getName()}" th:title="${album.getName()}"></h1>
 
     <div class="album__artists">
         <h3>By
             <span th:each="artist, iterStat : ${album.getArtists()}">
-                <a th:href="@{/artist/{id}(id=${artist.getId()})}" th:text="${artist.getName()}"></a>
+                <a th:href="@{/artist/{id}(id=${artist.getId()})}" th:text="${artist.getName()}" th:title="${artist.getName()}"></a>
                 <span th:if="${!iterStat.last}"> &amp; </span>
             </span>
         </h3>
@@ -71,12 +71,12 @@
         <img class="album_tracks__track__image" th:src="${album.getImageSource()}" alt="track image">
 
         <h3 class="album_tracks__track__name">
-            <a th:href="@{/track/{id}(id=${track.getId()})}" th:text="${track.getName()}"></a>
+            <a th:href="@{/track/{id}(id=${track.getId()})}" th:text="${track.getName()}" th:title="${track.getName()}"></a>
         </h3>
 
         <h3 class="album_tracks__track__artists">
             <span th:each="artist, iterStat : ${track.getArtists()}">
-                <a th:href="@{/artist/{id}(id=${artist.getId()})}" th:text="${artist.getName()}"></a>
+                <a th:href="@{/artist/{id}(id=${artist.getId()})}" th:text="${artist.getName()}" th:title="${artist.getName()}"></a>
                 <span th:if="${!iterStat.last}">, </span>
             </span>
         </h3>

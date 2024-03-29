@@ -38,16 +38,18 @@
     <div class="track__album">
         <h1>
             Album:
-            <a th:href="@{/albums/{id}(id=${track.getAlbum().getId()})}" th:text="${track.getAlbum().getName()}"></a>
+            <a th:href="@{/albums/{id}(id=${track.getAlbum().getId()})}" th:text="${track.getAlbum().getName()}"
+               th:title="${track.getAlbum().getName()}"></a>
         </h1>
     </div>
 
-    <h1 class="track__name" th:text="${track.getName()}"></h1>
+
+    <h1 class="track__name" th:text="${track.getName()}" th:title="${track.getName()}"></h1>
 
     <div class="track__artists">
         <h1>By
             <span th:each="artist, iterStat : ${track.getArtists()}">
-                <a th:href="@{/artist/{id}(id=${artist.getId()})}" th:text="${artist.getName()}"></a>
+                <a th:href="@{/artist/{id}(id=${artist.getId()})}" th:text="${artist.getName()}" th:title="${artist.getName()}"></a>
                 <span th:if="${!iterStat.last}"> &amp; </span>
             </span>
         </h1>
@@ -65,11 +67,11 @@
         <div class="recommended_track_container__track" th:each="recommendedTrack : ${recommendations}">
             <a th:href="@{/track/{id}(id=${recommendedTrack.getId()})}">
                 <img th:src="${recommendedTrack.getImageSource()}" alt="track image">
-                <h3 class="recommended_track_container__track__name" th:text="${recommendedTrack.getName()}"></h3>
+                <h3 class="recommended_track_container__track__name" th:text="${recommendedTrack.getName()}" th:title="${recommendedTrack.getName()}"></h3>
             </a>
                 <h4 class="recommended_track_container__track__artists">
                     <span th:each="artist, iterStat : ${recommendedTrack.getArtists()}">
-                        <a th:href="@{/artist/{id}(id=${artist.getId()})}" th:text="${artist.getName()}"></a>
+                        <a th:href="@{/artist/{id}(id=${artist.getId()})}" th:text="${artist.getName()}" th:title="${artist.getName()}"></a>
                         <span th:if="${!iterStat.last}">, </span>
                     </span>
                 </h4>
