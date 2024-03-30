@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
-    
+
 </head>
 <body>
 
@@ -41,6 +41,14 @@
 
     <h1 class="artist__spotify_followers" th:text="${'followers on a Spotify: ' + artist.getFollowers()}"></h1>
 
+    <div class="artist__genres">
+        <h3 class="artist__genres--details_color">Genres:
+            <span th:each="genre, iterStat: ${artist.getGenres()}">
+                <span th:text="${genre}"></span>
+                <span th:if="${!iterStat.last}">, </span>
+            </span>
+        </h3>
+    </div>
 </div>
 
 </body>

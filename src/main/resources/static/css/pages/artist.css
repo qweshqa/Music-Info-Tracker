@@ -6,6 +6,7 @@
 }
 .artist__image{
     height: 350px;
+    width: 350px;
     border-radius: 50%;
 
     display: block;
@@ -27,4 +28,13 @@
     font-size: 15px;
     position: relative;
     top: 20px;
+}
+.artist__genres{
+    position: relative;
+    bottom: 420px;
+    left: 10px;
+    width: fit-content;
+}
+.artist__genres--details_color{
+    color: #626262;
 }
