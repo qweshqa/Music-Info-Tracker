@@ -25,13 +25,23 @@
 }
 .artist__spotify_followers{
     margin: auto;
+
     font-size: 15px;
+    
     position: relative;
     top: 20px;
 }
+.artist__external_url{
+    margin: auto;
+
+    position: relative;
+    top: 20px;
+
+    font-size: 15px;
+}
 .artist__genres{
     position: relative;
-    bottom: 420px;
+    bottom: 440px;
     left: 10px;
     width: fit-content;
 }

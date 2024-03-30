@@ -52,6 +52,7 @@ public class ArtistService {
             }
             artist.setName(jsonNode.get("name").asText());
             artist.setFollowers(jsonNode.get("followers").get("total").asInt());
+            artist.setSpotifyUrl(jsonNode.get("external_urls").get("spotify").asText());
             for (int i = 0; i < jsonNode.get("genres").size(); i++) {
                 artist.addGenre(jsonNode.get("genres").get(i).asText());
             }

@@ -8,17 +8,19 @@ public class Artist {
     private String imageSource;
     private String name;
     private int followers;
+    private String spotifyUrl;
     private List<Album> albums;
     private List<String> genres;
 
     public Artist() {
     }
 
-    public Artist(String id, String imageSource, String name, int followers, List<Album> albums, List<String> genres) {
+    public Artist(String id, String imageSource, String name, int followers, String spotifyUrl, List<Album> albums, List<String> genres) {
         this.id = id;
         this.imageSource = imageSource;
         this.name = name;
         this.followers = followers;
+        this.spotifyUrl = spotifyUrl;
         this.albums = albums;
         this.genres = genres;
     }
@@ -53,6 +55,14 @@ public class Artist {
 
     public void setFollowers(int followers) {
         this.followers = followers;
+    }
+
+    public String getSpotifyUrl() {
+        return spotifyUrl;
+    }
+
+    public void setSpotifyUrl(String spotifyUrl) {
+        this.spotifyUrl = spotifyUrl;
     }
 
     public List<Album> getAlbums() {

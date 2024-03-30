@@ -41,6 +41,13 @@
 
     <h1 class="artist__spotify_followers" th:text="${'followers on a Spotify: ' + artist.getFollowers()}"></h1>
 
+    <h1 class="artist__external_url">
+        <a th:href="${artist.getSpotifyUrl()}">
+            <span th:text="${artist.getName()}"></span>
+        </a>
+        <span> on a spotify</span>
+    </h1>
+
     <div class="artist__genres">
         <h3 class="artist__genres--details_color">Genres:
             <span th:each="genre, iterStat: ${artist.getGenres()}">
