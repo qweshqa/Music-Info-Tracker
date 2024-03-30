@@ -46,7 +46,7 @@ public class ArtistService {
             artist.setGenres(new ArrayList<>());
             artist.setId(jsonNode.get("id").asText());
             try{
-                artist.setImageSource(jsonNode.get("images").get(2).get("url").asText());
+                artist.setImageSource(jsonNode.get("images").get(0).get("url").asText());
             } catch (NullPointerException ignored){
                 // if artist hasn't got any images, then continue
             }

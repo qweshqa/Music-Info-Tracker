@@ -1,0 +1,30 @@
+.artist{
+    height: 480px;
+    width: auto;
+
+    background-color: #1a1a1a;
+}
+.artist__image{
+    height: 350px;
+    border-radius: 50%;
+
+    display: block;
+    margin: auto;
+
+    position: relative;
+    top: 20px;
+}
+.artist__name{
+    margin: auto;
+
+    position: relative;
+    top: 20px;
+
+    font-size: 40px;
+}
+.artist__spotify_followers{
+    margin: auto;
+    font-size: 15px;
+    position: relative;
+    top: 20px;
+}
