@@ -27,7 +27,7 @@
     margin: auto;
 
     font-size: 15px;
-    
+
     position: relative;
     top: 20px;
 }
@@ -47,4 +47,28 @@
 }
 .artist__genres--details_color{
     color: #626262;
+}
+.artist__top_tracks{
+    height: 410px;
+    width: fit-content;
+
+    position: relative;
+
+    bottom: 450px;
+    left: 10px;
+
+    overflow: scroll;
+}
+.artist__top_track{
+    width: 220px;
+    height: 80px;
+}
+.artist__top_track img{
+    height: 60px;
+    width: 60px;
+}
+.artist__top_track__name{
+    position: relative;
+    left: 70px;
+    bottom: 65px;
 }

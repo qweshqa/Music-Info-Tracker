@@ -56,6 +56,16 @@
             </span>
         </h3>
     </div>
+
+    <div class="artist__top_tracks">
+        <div class="artist__top_track" th:each="track: ${artist_top_tracks}">
+            <img th:src="${track.getImageSource()}" alt="track image">
+
+             <a class="artist__top_track__name" th:href="@{/track/{id}(id=${track.getId()})}">
+                <h3 th:text="${track.getName()}"></h3>
+             </a>
+        </div>
+    </div>
 </div>
 
 </body>
