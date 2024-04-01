@@ -76,3 +76,8 @@
     left: 1080px;
     bottom: 160px;
 }
+.artist_top_tracks__track__audio{
+    position: relative;
+    left: 1170px;
+    bottom: 220px;
+}

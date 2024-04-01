@@ -74,6 +74,10 @@
         </div>
 
         <h3 class="artist_top_tracks__track__duration" th:text="${track.getDurationToDisplay()}"></h3>
+
+        <audio controls class="artist_top_tracks__track__audio">
+            <source th:src="${track.getPreview_url()}">
+        </audio>
     </div>
 </div>
 
