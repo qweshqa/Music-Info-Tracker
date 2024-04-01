@@ -71,3 +71,8 @@
 
     width: fit-content;
 }
+.artist_top_tracks__track__duration{
+    position: relative;
+    left: 1080px;
+    bottom: 160px;
+}
