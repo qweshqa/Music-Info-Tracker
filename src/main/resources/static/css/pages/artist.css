@@ -48,27 +48,26 @@
 .artist__genres--details_color{
     color: #626262;
 }
-.artist__top_tracks{
-    height: 410px;
-    width: fit-content;
-
-    position: relative;
-
-    bottom: 450px;
-    left: 10px;
-
-    overflow: scroll;
+.artist_top_tracks__track{
+    height: 70px;
+    overflow: hidden;
+    margin-bottom: 20px;
 }
-.artist__top_track{
-    width: 220px;
-    height: 80px;
+.artist_top_tracks__track:hover{
+    background-color: #1a1a1a;
 }
-.artist__top_track img{
+.artist_top_tracks__track img{
     height: 60px;
     width: 60px;
-}
-.artist__top_track__name{
+
     position: relative;
-    left: 70px;
-    bottom: 65px;
+    left: 255px;
+    bottom: 55px;
+}
+.artist_top_tracks__track__name{
+    position: relative;
+    left: 320px;
+    bottom: 120px;
+
+    width: fit-content;
 }

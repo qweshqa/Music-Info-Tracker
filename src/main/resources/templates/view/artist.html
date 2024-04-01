@@ -57,13 +57,20 @@
         </h3>
     </div>
 
-    <div class="artist__top_tracks">
-        <div class="artist__top_track" th:each="track: ${artist_top_tracks}">
-            <img th:src="${track.getImageSource()}" alt="track image">
+</div>
 
-             <a class="artist__top_track__name" th:href="@{/track/{id}(id=${track.getId()})}">
+<h1 th:text="${artist.getName() + '''s popular tracks'}" style="font-size: 20px; padding: 10px;"></h1>
+
+<div class="artist_top_tracks">
+    <div class="artist_top_tracks__track" th:each="track, iterStat: ${artist_top_tracks}">
+        <h3 th:text="${iterStat.index + 1}" style="position: relative; left: 10px; top: 5px;"></h3>
+
+        <img th:src="${track.getImageSource()}" alt="track image">
+
+        <div class="artist_top_tracks__track__name">
+            <a th:href="@{/track/{id}(id=${track.getId()})}">
                 <h3 th:text="${track.getName()}"></h3>
-             </a>
+            </a>
         </div>
     </div>
 </div>
