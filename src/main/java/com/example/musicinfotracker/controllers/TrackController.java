@@ -37,6 +37,6 @@ public class TrackController {
         model.addAttribute("track", track);
         model.addAttribute("recommendations", recommendedTracks);
 
-        return "view/track";
+        return "track/track";
     }
 }

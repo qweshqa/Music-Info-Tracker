@@ -47,7 +47,7 @@ public class ArtistController {
         model.addAttribute("artist_top_tracks", artistTopTracks);
         model.addAttribute("related_artists", relatedArtists);
 
-        return "/view/artist";
+        return "artist/artist";
     }
 
     @GetMapping("/{id}/related_artists")

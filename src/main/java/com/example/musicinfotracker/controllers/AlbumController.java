@@ -36,6 +36,6 @@ public class AlbumController {
             return "errorPage";
         }
         model.addAttribute("album", album);
-        return "/view/album";
+        return "album/album";
     }
 }
