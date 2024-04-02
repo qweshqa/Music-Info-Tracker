@@ -100,4 +100,39 @@ public class ArtistService {
         }
         throw new ArtistNotFoundException();
     }
+
+    public List<Artist> getArtistRelatedArtists(String artist_id) throws IOException, InterruptedException{
+        String requestUrl = "https://api.spotify.com/v1/artists/" + artist_id + "/related-artists";
+
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(requestUrl))
+                .header("Authorization", "Bearer " + accessToken)
+                .GET()
+                .build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        if(response.statusCode() == 200){
+            ObjectMapper objectMapper = new ObjectMapper();
+            JsonNode jsonNode = objectMapper.readTree(response.body());
+
+            List<Artist> relatedArtists = new ArrayList<>();
+
+            for(int i = 0; i < jsonNode.get("artists").size(); i++){
+                JsonNode artistNode = jsonNode.get("artists").get(i);
+
+                Artist artist = new Artist();
+
+                artist.setId(artistNode.get("id").asText());
+                artist.setName(artistNode.get("name").asText());
+                artist.setImageSource(artistNode.get("images").get(0).get("url").asText());
+
+                relatedArtists.add(artist);
+            }
+            return relatedArtists;
+        }
+        throw new ArtistNotFoundException();
+
+    }
 }

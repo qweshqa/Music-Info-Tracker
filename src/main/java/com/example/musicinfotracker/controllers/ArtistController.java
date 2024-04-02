@@ -31,10 +31,12 @@ public class ArtistController {
     public String viewArtist(@PathVariable("id") String id, Model model) throws IOException, InterruptedException {
         Artist artist;
         List<Track> artistTopTracks;
+        List<Artist> relatedArtists;
 
         try{
             artist = artistService.getArtist(id);
             artistTopTracks = artistService.getArtistTopTracks(id);
+            relatedArtists = artistService.getArtistRelatedArtists(id);
         } catch (ArtistNotFoundException ignore){
             model.addAttribute("errorMsg", "Artist wasn't found");
             return "errorPage";
@@ -42,6 +44,7 @@ public class ArtistController {
 
         model.addAttribute("artist", artist);
         model.addAttribute("artist_top_tracks", artistTopTracks);
+        model.addAttribute("related_artists", relatedArtists);
 
         return "/view/artist";
     }

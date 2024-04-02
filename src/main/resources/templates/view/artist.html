@@ -81,5 +81,15 @@
     </div>
 </div>
 
+<h1 style="font-size: 20px; padding: 10px;">Related artists</h1>
+
+<div class="artist's_related_artists">
+    <div class="artist's_related_artist" th:each="artist: ${related_artists}">
+        <a th:href="@{/artist/{id}(id=${artist.getId()})}">
+            <img th:src="${artist.getImageSource()}" alt="artist image">
+            <h3 class="artist's_related_artist__name" th:text="${artist.getName()}"></h3>
+        </a>
+    </div>
+</div>
 </body>
 </html>
