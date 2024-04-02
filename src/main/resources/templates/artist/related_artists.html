@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Related artists</title>
+
+  <link rel="stylesheet" href="/css/main.css" type="text/css"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="related_artists">
+  <div class="related_artist" th:each="artist, iterStat: ${related_artists}">
+    <a th:href="@{/artist/{id}(id=${artist.getId()})}">
+      <img th:src="${artist.getImageSource()}" alt="artist image">
+      <h3 class="related_artist__name" th:text="${artist.getName()}"></h3>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>

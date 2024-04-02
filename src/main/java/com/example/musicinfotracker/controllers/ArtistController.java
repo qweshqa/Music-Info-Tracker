@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @RequestMapping("/artist")
@@ -47,5 +48,20 @@ public class ArtistController {
         model.addAttribute("related_artists", relatedArtists);
 
         return "/view/artist";
+    }
+
+    @GetMapping("/{id}/related_artists")
+    public String viewArtistRelatedArtists(@PathVariable("id") String id, Model model) throws IOException, InterruptedException {
+        List<Artist> related_artists = new ArrayList<>();
+
+        try{
+            related_artists = artistService.getArtistRelatedArtists(id);
+        } catch (ArtistNotFoundException ignored){
+            model.addAttribute("errorMsg", "Artist wasn't found");
+            return "errorPage";
+        }
+
+        model.addAttribute("related_artists", related_artists);
+        return "artist/related_artists";
     }
 }
