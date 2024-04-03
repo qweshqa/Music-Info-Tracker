@@ -54,6 +54,24 @@ public class ArtistController {
         return "artist/artist";
     }
 
+    @GetMapping("/{id}/albums")
+    public String viewArtistAlbums(@PathVariable("id") String id, Model model) throws IOException, InterruptedException{
+        List<Album> artistAlbums;
+        Artist artist;
+
+        try{
+            artistAlbums = artistService.getArtistAlbums(id, 50);
+            artist = artistService.getArtist(id);
+        } catch (ArtistNotFoundException ignored){
+            model.addAttribute("errorMsg", "Artist wasn't found");
+            return "errorPage";
+        }
+
+        model.addAttribute("artist_albums", artistAlbums);
+        model.addAttribute("artist", artist);
+        return "artist/albums";
+    }
+
     @GetMapping("/{id}/related_artists")
     public String viewArtistRelatedArtists(@PathVariable("id") String id, Model model) throws IOException, InterruptedException {
         List<Artist> related_artists = new ArrayList<>();

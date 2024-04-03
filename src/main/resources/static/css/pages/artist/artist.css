@@ -101,6 +101,12 @@
     width: 225px;
     height: 225px;
 }
+.artist_albums_album__name{
+    max-width: 230px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .artist\'s_related_artists{
     display: flex;
     flex-direction: row;
