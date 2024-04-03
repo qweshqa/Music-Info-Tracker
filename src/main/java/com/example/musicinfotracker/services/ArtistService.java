@@ -137,12 +137,13 @@ public class ArtistService {
 
     }
 
-    public List<Album> getArtistAlbums(String artist_id) throws IOException, InterruptedException{
+    public List<Album> getArtistAlbums(String artist_id, int limit) throws IOException, InterruptedException{
         String requestUrl = "https://api.spotify.com/v1/artists/" + artist_id + "/albums";
+        String requestBody = "limit=" + limit;
 
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(requestUrl))
+                .uri(URI.create(requestUrl + "?" + requestBody))
                 .header("Authorization", "Bearer " + accessToken)
                 .GET()
                 .build();

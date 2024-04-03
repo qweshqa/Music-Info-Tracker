@@ -39,7 +39,7 @@ public class ArtistController {
         try{
             artist = artistService.getArtist(id);
             artistTopTracks = artistService.getArtistTopTracks(id);
-            artistAlbums = artistService.getArtistAlbums(id);
+            artistAlbums = artistService.getArtistAlbums(id, 5);
             relatedArtists = artistService.getArtistRelatedArtists(id);
         } catch (ArtistNotFoundException ignore){
             model.addAttribute("errorMsg", "Artist wasn't found");
