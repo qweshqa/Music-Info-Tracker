@@ -1,5 +1,6 @@
 package com.example.musicinfotracker.controllers;
 
+import com.example.musicinfotracker.dto.Album;
 import com.example.musicinfotracker.dto.Artist;
 import com.example.musicinfotracker.dto.Track;
 import com.example.musicinfotracker.services.ArtistService;
@@ -32,11 +33,13 @@ public class ArtistController {
     public String viewArtist(@PathVariable("id") String id, Model model) throws IOException, InterruptedException {
         Artist artist;
         List<Track> artistTopTracks;
+        List<Album> artistAlbums;
         List<Artist> relatedArtists;
 
         try{
             artist = artistService.getArtist(id);
             artistTopTracks = artistService.getArtistTopTracks(id);
+            artistAlbums = artistService.getArtistAlbums(id);
             relatedArtists = artistService.getArtistRelatedArtists(id);
         } catch (ArtistNotFoundException ignore){
             model.addAttribute("errorMsg", "Artist wasn't found");
@@ -45,6 +48,7 @@ public class ArtistController {
 
         model.addAttribute("artist", artist);
         model.addAttribute("artist_top_tracks", artistTopTracks);
+        model.addAttribute("artist_albums", artistAlbums);
         model.addAttribute("related_artists", relatedArtists);
 
         return "artist/artist";

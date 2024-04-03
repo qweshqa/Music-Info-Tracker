@@ -1,5 +1,6 @@
 package com.example.musicinfotracker.services;
 
+import com.example.musicinfotracker.dto.Album;
 import com.example.musicinfotracker.dto.Artist;
 import com.example.musicinfotracker.dto.Track;
 import com.example.musicinfotracker.utils.ArtistNotFoundException;
@@ -101,7 +102,7 @@ public class ArtistService {
         throw new ArtistNotFoundException();
     }
 
-    public List<Artist> getArtistRelatedArtists(String artist_id) throws IOException, InterruptedException{
+    public List<Artist> getArtistRelatedArtists(String artist_id) throws IOException, InterruptedException {
         String requestUrl = "https://api.spotify.com/v1/artists/" + artist_id + "/related-artists";
 
         HttpClient client = HttpClient.newHttpClient();
@@ -134,5 +135,38 @@ public class ArtistService {
         }
         throw new ArtistNotFoundException();
 
+    }
+
+    public List<Album> getArtistAlbums(String artist_id) throws IOException, InterruptedException{
+        String requestUrl = "https://api.spotify.com/v1/artists/" + artist_id + "/albums";
+
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(requestUrl))
+                .header("Authorization", "Bearer " + accessToken)
+                .GET()
+                .build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        if(response.statusCode() == 200){
+            ObjectMapper objectMapper = new ObjectMapper();
+            JsonNode jsonNode = objectMapper.readTree(response.body());
+
+            List<Album> artistAlbums = new ArrayList<>();
+
+            for(int i = 0; i < jsonNode.get("items").size(); i++){
+                JsonNode albumNode = jsonNode.get("items").get(i);
+                Album album = new Album();
+
+                album.setId(albumNode.get("id").asText());
+                album.setName(albumNode.get("name").asText());
+                album.setImageSource(albumNode.get("images").get(0).get("url").asText());
+
+                artistAlbums.add(album);
+            }
+            return artistAlbums;
+        }
+        throw new ArtistNotFoundException();
     }
 }

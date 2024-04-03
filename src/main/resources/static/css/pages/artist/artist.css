@@ -81,6 +81,26 @@
     left: 1170px;
     bottom: 220px;
 }
+.artist_albums{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+}
+.artist_albums__album{
+    padding: 30px 30px 0;
+    background-color: #0a0a0a;
+}
+.artist_albums__album:hover{
+    background-color: #1a1a1a;
+}
+.artist_albums__album img{
+    width: 225px;
+    height: 225px;
+}
 .artist\'s_related_artists{
     display: flex;
     flex-direction: row;

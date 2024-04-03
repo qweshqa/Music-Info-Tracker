@@ -81,6 +81,17 @@
     </div>
 </div>
 
+<h1 th:text="${artist.getName() + '''s albums'}" style="font-size: 20px; padding: 10px;"></h1>
+
+<div class="artist_albums">
+    <div class="artist_albums__album" th:each="album: ${artist_albums}">
+        <a th:href="@{/albums/{id}(id=${album.getId()})}">
+            <img th:src="${album.getImageSource()}" alt="album image">
+            <h3 class="artist_albums__album__name" th:text="${album.getName()}"></h3>
+        </a>
+    </div>
+</div>
+
 <h1 style="font-size: 20px; padding: 10px;">Related artists</h1>
 
 <div class="artist's_related_artists">
@@ -93,7 +104,8 @@
 </div>
 
 <a th:href="@{/artist/{id}/related_artists(id=${artist.getId()})}">
-    <h1 style="margin: auto; padding: 10px;">View more...</h1>
+    <h1 style="margin: auto; padding: 10px; font-size: 20px;">View more...</h1>
 </a>
+
 </body>
 </html>
