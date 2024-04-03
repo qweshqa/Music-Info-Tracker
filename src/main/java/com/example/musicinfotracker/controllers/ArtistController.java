@@ -20,13 +20,11 @@ import java.util.List;
 @RequestMapping("/artist")
 @Controller
 public class ArtistController {
-    private String accessToken;
     private ArtistService artistService;
 
     @Autowired
-    public ArtistController(@Qualifier("accessToken") String accessToken, ArtistService artistService){
+    public ArtistController(ArtistService artistService){
         this.artistService = artistService;
-        this.accessToken = accessToken;
     }
 
     @GetMapping("/{id}")

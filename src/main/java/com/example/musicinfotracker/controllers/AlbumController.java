@@ -16,12 +16,10 @@ import java.io.IOException;
 @Controller
 @RequestMapping("/albums")
 public class AlbumController {
-    private String accessToken;
     private AlbumService albumService;
 
     @Autowired
-    public AlbumController(@Qualifier("accessToken") String accessToken, AlbumService albumService) {
-        this.accessToken = accessToken;
+    public AlbumController(AlbumService albumService) {
         this.albumService = albumService;
     }
 
