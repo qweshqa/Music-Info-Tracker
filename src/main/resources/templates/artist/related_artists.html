@@ -13,10 +13,10 @@
 <body>
 
 <div class="related_artists">
-  <div class="related_artist" th:each="artist, iterStat: ${related_artists}">
+  <div class="item" th:each="artist, iterStat: ${related_artists}">
     <a th:href="@{/artist/{id}(id=${artist.getId()})}">
-      <img th:src="${artist.getImageSource()}" alt="artist image">
-      <h3 class="related_artist__name" th:text="${artist.getName()}"></h3>
+      <img class="item__image--circular" th:src="${artist.getImageSource()}" alt="artist image">
+      <h3 class="item__name" th:text="${artist.getName()}"></h3>
     </a>
   </div>
 </div>
