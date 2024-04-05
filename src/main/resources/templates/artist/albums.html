@@ -33,7 +33,7 @@
     <div class="item" th:each="album: ${artist_albums}">
         <a th:href="@{/albums/{id}(id=${album.getId()})}">
             <img class="item__image" th:src="${album.getImageSource()}" alt="album image">
-            <h3 class="item__name" th:text="${album.getName()}"></h3>
+            <h3 class="item__param" th:text="${album.getName()}" th:title="${album.getName()}"></h3>
         </a>
     </div>
 </div>

@@ -1,0 +1,17 @@
+.list__track{
+    height: 70px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+.list__track:hover{
+    background-color: #1a1a1a;
+}
+.list__track img{
+    height: 60px;
+    width: 60px;
+    position: relative;
+    left: 255px;
+    bottom: 55px;
+    border-radius: 10px;
+}
