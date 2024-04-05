@@ -6,7 +6,6 @@ import com.example.musicinfotracker.dto.Track;
 import com.example.musicinfotracker.services.ArtistService;
 import com.example.musicinfotracker.utils.ArtistNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,7 +40,7 @@ public class ArtistController {
             relatedArtists = artistService.getArtistRelatedArtists(id);
         } catch (ArtistNotFoundException ignore){
             model.addAttribute("errorMsg", "Artist wasn't found");
-            return "errorPage";
+            return "404page";
         }
 
         model.addAttribute("artist", artist);
@@ -62,7 +61,7 @@ public class ArtistController {
             artist = artistService.getArtist(id);
         } catch (ArtistNotFoundException ignored){
             model.addAttribute("errorMsg", "Artist wasn't found");
-            return "errorPage";
+            return "404page";
         }
 
         model.addAttribute("artist_albums", artistAlbums);
@@ -78,7 +77,7 @@ public class ArtistController {
             related_artists = artistService.getArtistRelatedArtists(id);
         } catch (ArtistNotFoundException ignored){
             model.addAttribute("errorMsg", "Artist wasn't found");
-            return "errorPage";
+            return "404page";
         }
 
         model.addAttribute("related_artists", related_artists);

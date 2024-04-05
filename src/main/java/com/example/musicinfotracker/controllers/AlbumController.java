@@ -4,7 +4,6 @@ import com.example.musicinfotracker.dto.Album;
 import com.example.musicinfotracker.services.AlbumService;
 import com.example.musicinfotracker.utils.AlbumNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,7 +30,7 @@ public class AlbumController {
             album = albumService.getAlbum(id);
         } catch (AlbumNotFoundException ignored){
             model.addAttribute("errorMsg", "Album wasn't found");
-            return "errorPage";
+            return "404page";
         }
         model.addAttribute("album", album);
         return "album/album";

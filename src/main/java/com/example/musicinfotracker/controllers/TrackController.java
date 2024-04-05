@@ -32,7 +32,7 @@ public class TrackController {
             recommendedTracks = trackService.getRecommendedTracks(track.getId());
         } catch (TrackNotFoundException ignored){
             model.addAttribute("errorMsg", "Track with this id does not exist");
-            return "errorPage";
+            return "404page";
         }
         model.addAttribute("track", track);
         model.addAttribute("recommendations", recommendedTracks);
