@@ -48,22 +48,7 @@
 .artist__genres--details_color{
     color: #626262;
 }
-.artist_top_tracks__track{
-    height: 70px;
-    overflow: hidden;
-    margin-bottom: 20px;
-}
-.artist_top_tracks__track:hover{
-    background-color: #1a1a1a;
-}
-.artist_top_tracks__track img{
-    height: 60px;
-    width: 60px;
 
-    position: relative;
-    left: 255px;
-    bottom: 55px;
-}
 .artist_top_tracks__track__name{
     position: relative;
     left: 320px;
@@ -88,23 +73,6 @@
     align-content: center;
     gap: 10px;
 }
-.artist_albums__album{
-    padding: 30px 30px 0;
-    background-color: #0a0a0a;
-}
-.artist_albums__album:hover{
-    background-color: #1a1a1a;
-}
-.artist_albums__album img{
-    width: 225px;
-    height: 225px;
-}
-.artist_albums__album__name{
-    max-width: 230px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
 .artist\'s_related_artists{
     display: flex;
     flex-direction: row;
@@ -112,23 +80,4 @@
     align-content: center;
     justify-content: center;
     gap: 10px;
-}
-.artist\'s_related_artist{
-    width: 225px;
-    padding: 30px 30px 0;
-    background-color: #0a0a0a;
-}
-.artist\'s_related_artist:hover{
-    background-color: #1a1a1a;
-}
-.artist\'s_related_artist img{
-    width: 225px;
-    height: 225px;
-    border-radius: 50%;
-}
-.artist\'s_related_artist__name{
-    max-width: 230px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }

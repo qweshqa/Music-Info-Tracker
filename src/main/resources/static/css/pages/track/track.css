@@ -85,26 +85,3 @@
     flex-wrap: wrap;
     justify-content: flex-start;
 }
-.recommended_track_container__track {
-    width: 225px;
-    padding: 30px 30px 0;
-    background-color: #0a0a0a;
-}
-.recommended_track_container__track:hover{
-    background-color: #1a1a1a;
-}
-.recommended_track_container__track__name{
-    max-width: 230px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.recommended_track_container__track img{
-    width: 225px
-}
-.recommended_track_container__track__artists{
-    max-width: 230px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}

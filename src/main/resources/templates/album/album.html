@@ -65,10 +65,10 @@
 </div>
 
 <div class="album_tracks">
-    <div class="album_tracks__track" th:each="track : ${album.getTracks()}">
+    <div class="list__track" th:each="track : ${album.getTracks()}">
         <h3 class="album_tracks__track__number" th:text="${track.getTrackNumberInAlbum()}"></h3>
 
-        <img class="album_tracks__track__image" th:src="${album.getImageSource()}" alt="track image">
+        <img th:src="${album.getImageSource()}" alt="track image">
 
         <h3 class="album_tracks__track__name">
             <a th:href="@{/track/{id}(id=${track.getId()})}" th:text="${track.getName()}" th:title="${track.getName()}"></a>

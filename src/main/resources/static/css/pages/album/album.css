@@ -62,26 +62,11 @@
 
     margin-right: 320px;
 }
-.album_tracks__track{
-    height: 70px;
-    overflow: hidden;
-    margin-bottom: 20px;
-}
-.album_tracks__track:hover{
-    background-color: #1a1a1a;
-}
+
 .album_tracks__track__number{
     position: relative;
     left: 10px;
     top: 5px;
-}
-.album_tracks__track__image{
-    position: relative;
-    bottom: 55px;
-
-    width: 60px;
-
-    left: 255px;
 }
 .album_tracks__track__name{
     position: relative;
