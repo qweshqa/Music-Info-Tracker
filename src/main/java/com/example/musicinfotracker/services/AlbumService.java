@@ -50,7 +50,11 @@ public class AlbumService {
             foundAlbum.setId(id);
             foundAlbum.setName(jsonNode.get("name").asText());
             foundAlbum.setImageSource(jsonNode.get("images").get(0).get("url").asText());
-            foundAlbum.setAlbum_type(jsonNode.get("album_type").asText());
+            if(jsonNode.get("album_type").asText().equals("single") && jsonNode.get("total_tracks").asInt() > 1){
+                foundAlbum.setAlbum_type("EP");
+            } else{
+                foundAlbum.setAlbum_type(jsonNode.get("album_type").asText());
+            }
             foundAlbum.setTotalTracks(jsonNode.get("total_tracks").asInt());
 
             String releaseDateString = jsonNode.get("release_date").asText();

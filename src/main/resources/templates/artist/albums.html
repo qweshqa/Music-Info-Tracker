@@ -35,6 +35,7 @@
             <img class="item__image" th:src="${album.getImageSource()}" alt="album image">
             <h3 class="item__param" th:text="${album.getName()}" th:title="${album.getName()}"></h3>
         </a>
+        <h3 th:text="${album.getAlbum_type()}" style="color: #626262"></h3>
     </div>
 </div>
 

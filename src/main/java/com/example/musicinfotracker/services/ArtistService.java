@@ -163,6 +163,11 @@ public class ArtistService {
                 album.setId(albumNode.get("id").asText());
                 album.setName(albumNode.get("name").asText());
                 album.setImageSource(albumNode.get("images").get(0).get("url").asText());
+                if(albumNode.get("album_type").asText().equals("single") && albumNode.get("total_tracks").asInt() > 1){
+                    album.setAlbum_type("EP");
+                } else{
+                    album.setAlbum_type(albumNode.get("album_type").asText());
+                }
 
                 artistAlbums.add(album);
             }
