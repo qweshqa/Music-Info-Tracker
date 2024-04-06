@@ -72,7 +72,7 @@
     align-content: center;
     gap: 10px;
 }
-.artist\'s_related_artists{
+.artist_related_artists{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
