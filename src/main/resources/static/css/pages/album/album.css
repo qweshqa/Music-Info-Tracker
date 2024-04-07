@@ -41,6 +41,9 @@
 
     width: fit-content;
 }
+.album__artists a{
+    color: lightblue;
+}
 .album__total-tracks{
     position: relative;
     bottom: 50px;
@@ -77,7 +80,8 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
+} .album_tracks__track__name a { color: white; }
+
 .album_tracks__track__artists{
     position: relative;
     left: 700px;
@@ -87,7 +91,8 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
+} .album_tracks__track__artists a { color: white; }
+
 .album_tracks__track__duration{
     position: relative;
     left: 1080px;

@@ -69,11 +69,12 @@
         <div class="item" th:each="recommendedTrack : ${recommendations}">
             <a th:href="@{/track/{id}(id=${recommendedTrack.getId()})}">
                 <img class="item__image" th:src="${recommendedTrack.getImageSource()}" alt="track image">
-                <h3 class="item__param" th:text="${recommendedTrack.getName()}" th:title="${recommendedTrack.getName()}"></h3>
+                <h3 class="item__name" th:text="${recommendedTrack.getName()}" th:title="${recommendedTrack.getName()}"></h3>
             </a>
                 <h4 class="item__param">
                     <span th:each="artist, iterStat : ${recommendedTrack.getArtists()}">
-                        <a th:href="@{/artist/{id}(id=${artist.getId()})}" th:text="${artist.getName()}" th:title="${artist.getName()}"></a>
+                        <a th:href="@{/artist/{id}(id=${artist.getId()})}" th:text="${artist.getName()}"
+                           th:title="${artist.getName()}"></a>
                         <span th:if="${!iterStat.last}">, </span>
                     </span>
                 </h4>

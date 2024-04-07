@@ -87,9 +87,9 @@
     <div class="item" th:each="album: ${artist_albums}">
         <a th:href="@{/albums/{id}(id=${album.getId()})}">
             <img class="item__image" th:src="${album.getImageSource()}" alt="album image">
-            <h3 class="item__param" th:text="${album.getName()}" th:title="${album.getName()}"></h3>
+            <h3 class="item__name" th:text="${album.getName()}" th:title="${album.getName()}"></h3>
         </a>
-        <h3 th:text="${album.getAlbum_type()}" style="color: #626262"></h3>
+        <h3 class="item__param" th:text="${album.getAlbum_type()}"></h3>
     </div>
 </div>
 <a th:href="@{/artist/{id}/albums(id=${artist.getId()})}">
@@ -102,7 +102,7 @@
     <div class="item" th:each="artist, iterStat: ${related_artists}" th:if="${iterStat.index < 5}">
         <a th:href="@{/artist/{id}(id=${artist.getId()})}">
             <img class="item__image--circular" th:src="${artist.getImageSource()}" alt="artist image">
-            <h3 class="item__param" th:text="${artist.getName()}" th:title="${artist.getName()}"></h3>
+            <h3 class="item__name" th:text="${artist.getName()}" th:title="${artist.getName()}"></h3>
         </a>
     </div>
 </div>

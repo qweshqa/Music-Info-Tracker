@@ -34,6 +34,9 @@
     font-size: 10px;
     width: fit-content;
 }
+.track__album a{
+    color: lightblue;
+}
 .track__name{
     font-size: 50px;
 
@@ -56,6 +59,9 @@
     font-size: 10px;
 
     width: fit-content;
+}
+.track__artists a{
+    color: lightblue;
 }
 .track__audio{
     position: relative;

@@ -16,9 +16,20 @@
     height: 225px;
     border-radius: 50%;
 }
-.item__param{
+.item__name{
     max-width: 225px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+.item__param{
+    color: #626262;
+
+    max-width: 225px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.item__param a{
+    color: #626262;
 }

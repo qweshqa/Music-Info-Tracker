@@ -39,6 +39,9 @@
 
     font-size: 15px;
 }
+.artist__external_url a{
+    color: lightblue;
+}
 .artist__genres{
     position: relative;
     bottom: 440px;
