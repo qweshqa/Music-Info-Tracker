@@ -10,3 +10,11 @@ h1, h2, h3, h4{
     color: white;
     width: fit-content;
 }
+a:link{
+    text-decoration: none;
+    color: lightblue;
+}
+a:hover{
+    color: white;
+    text-decoration: underline;
+}
