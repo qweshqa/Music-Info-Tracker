@@ -141,6 +141,11 @@ public class SearchService {
                 album.setId(albumNode.get(i).get("id").asText());
                 album.setName(albumNode.get(i).get("name").asText());
                 album.setImageSource(albumNode.get(i).get("images").get(0).get("url").asText());
+                if(albumNode.get(i).get("album_type").asText().equals("single") && albumNode.get(i).get("total_tracks").asInt() > 1){
+                    album.setAlbum_type("EP");
+                } else{
+                    album.setAlbum_type(albumNode.get(i).get("album_type").asText());
+                }
 
                 foundAlbums.add(album);
             }
