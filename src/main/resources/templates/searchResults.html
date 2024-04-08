@@ -30,48 +30,37 @@
 
 </header>
 
-<h1>Artists:</h1>
-<div th:if="artists">
-    <table>
-        <tr>
-            <td th:each="artist : ${artists}">
-                <a th:href="@{/artist/{id}(id=${artist.getId()})}">
-                    <img class="search-result-image" th:src="${artist.getImageSource()}" alt="Artist's image">
-                </a>
-                <h2 th:text="${artist.getName()}"></h2>
-            </td>
-        </tr>
-    </table>
+<div class="found-artists" th:if="artists">
+    <div class="item found-artist" th:each="artist: ${artists}">
+        <a th:href="@{/artist/{id}(id=${artist.getId()})}">
+            <img class="found-artists__item__image item__image--circular" th:src="${artist.getImageSource()}" th:alt="${artist.getName()} + ' image'">
+            <h3 class="item__name" th:text="${artist.getName()}" th:title="${artist.getName()}"></h3>
+        </a>
+    </div>
 </div>
 <h2 th:if="artists_not_found" th:text="${artists_not_found}"></h2>
 
-<h1>Tracks:</h1>
-<div th:if="tracks">
-    <table>
-        <tr>
-            <td th:each="track : ${tracks}">
-                <a th:href="@{/track/{id}(id=${track.getId()})}">
-                    <img class="search-result-image" th:src="${track.getImageSource()}" alt="Track image">
-                </a>
-                <h2 th:text="${track.getName()}"></h2>
-            </td>
-        </tr>
-    </table>
+<div class="found-tracks" th:if="tracks">
+    <div class="list__item list__found_track" th:each="track, iterStat: ${tracks}">
+        <img th:src="${track.getImageSource()}" alt="track image">
+
+        <div class="list__found_track__name">
+            <a th:href="@{/track/{id}(id=${track.getId()})}">
+                <h3 th:text="${track.getName()}"></h3>
+            </a>
+        </div>
+    </div>
 </div>
 <h2 th:if="tracks_not_found" th:text="${tracks_not_found}"></h2>
 
 <h1>Albums:</h1>
-<div th:if="albums">
-    <table>
-        <tr>
-            <td th:each="album: ${albums}">
-                <a th:href="@{/albums/{id}(id=${album.getId()})}">
-                    <img class="search-result-image" th:src="${album.getImageSource()}" alt="Album image">
-                </a>
-                <h2 th:text="${album.getName()}"></h2>
-            </td>
-        </tr>
-    </table>
+<div class="found_albums" th:if="albums">
+    <div class="item found_album" th:each="album: ${albums}">
+        <a th:href="@{/albums/{id}(id=${album.getId()})}">
+            <img class="item__image" th:src="${album.getImageSource()}" alt="album image">
+            <h3 class="item__name" th:text="${album.getName()}"></h3>
+        </a>
+    </div>
 </div>
 <h2 th:if="albums_not_found" th:text="${albums_not_found}"></h2>
 </body>

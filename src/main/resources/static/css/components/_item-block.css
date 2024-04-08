@@ -12,8 +12,6 @@
     border-radius: 10px;
 }
 .item__image--circular{
-    width: 225px;
-    height: 225px;
     border-radius: 50%;
 }
 .item__name{

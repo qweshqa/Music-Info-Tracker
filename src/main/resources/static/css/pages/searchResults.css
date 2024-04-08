@@ -1,4 +1,31 @@
-.search-result-image{
-    width: 160px;
-    height: 160px;
+.found-artists{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 10px;
+    width: 210px;
+    margin-top: 10px;
+}
+.found-artists__item__image{
+    width: 150px;
+    height: 150px;
+}
+.found-artists__item__name{
+    max-width: 150px;
+}
+.found-tracks{
+    position: relative;
+    left: 220px;
+    bottom: 4957px;
+}
+.list__found_track img{
+    position: relative;
+    top: 5px;
+    left: 225px;
+}
+.list__found_track__name{
+    position: relative;
+    left: 290px;
+    bottom: 60px;
+    width: fit-content;
 }

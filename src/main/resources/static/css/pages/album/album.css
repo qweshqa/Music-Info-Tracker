@@ -71,6 +71,11 @@
     left: 10px;
     top: 5px;
 }
+.album_tracks__track__image{
+    position: relative;
+    left: 255px;
+    bottom: 55px;
+}
 .album_tracks__track__name{
     position: relative;
     left: 330px;
