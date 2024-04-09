@@ -25,7 +25,7 @@ public class SearchController {
     }
 
     @GetMapping("/artists")
-    public String search(@RequestParam("query") String query, Model model) throws IOException, InterruptedException {
+    public String searchArtists(@RequestParam("query") String query, Model model) throws IOException, InterruptedException {
         List<Artist> foundArtists;
 
         foundArtists = searchService.searchArtists(query);
@@ -36,5 +36,20 @@ public class SearchController {
         } else model.addAttribute("artists_not_found", "No one artist was found");
 
         return "search/foundArtists";
+    }
+
+    @GetMapping("/tracks")
+    public String searchTracks(@RequestParam("query") String query, Model model) throws IOException, InterruptedException {
+        List<Track> foundTracks;
+
+        foundTracks = searchService.searchTracks(query);
+
+        model.addAttribute("query", query);
+
+        if(!foundTracks.isEmpty()){
+            model.addAttribute("tracks", foundTracks);
+        } else model.addAttribute("tracks_not_found", "No one track was not found");
+
+        return "search/foundTracks";
     }
 }
