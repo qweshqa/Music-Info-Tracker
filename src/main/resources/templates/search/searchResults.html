@@ -32,13 +32,13 @@
 
 <div class="search-categories">
     <h3>
-        <a class="category" th:href="@{/musicInfoTracker/search/artists?query=${query}}">
+        <a class="category" th:href="@{/musicInfoTracker/search/artists(query=${query})}">
             <span>Artists</span>
         </a>
-        <a class="category" th:href="@{/musicInfoTracker/search/tracks?query=${query}}">
+        <a class="category" th:href="@{/musicInfoTracker/search/tracks(query=${query})}">
             <span>Tracks</span>
         </a>
-        <a class="category" th:href="@{/musicInfoTracker/search/albums?query=${query}}">
+        <a class="category" th:href="@{/musicInfoTracker/search/albums(query=${query})}">
             <span>Albums</span>
         </a>
     </h3>

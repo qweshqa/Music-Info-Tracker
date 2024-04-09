@@ -13,7 +13,7 @@
 }
 .found-artists{
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
     gap: 10px;
