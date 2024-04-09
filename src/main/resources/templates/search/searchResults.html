@@ -30,6 +30,20 @@
 
 </header>
 
+<div class="search-categories">
+    <h3>
+        <a class="category" th:href="@{/musicInfoTracker/search/artists?query=${query}}">
+            <span>Artists</span>
+        </a>
+        <a class="category" th:href="@{/musicInfoTracker/search/tracks?query=${query}}">
+            <span>Tracks</span>
+        </a>
+        <a class="category" th:href="@{/musicInfoTracker/search/albums?query=${query}}">
+            <span>Albums</span>
+        </a>
+    </h3>
+</div>
+
 <div class="found-artists" th:if="artists">
     <div class="item found-artist" th:each="artist, iterStat: ${artists}" th:unless="${iterStat.index >= 5}">
         <a th:href="@{/artist/{id}(id=${artist.getId()})}">

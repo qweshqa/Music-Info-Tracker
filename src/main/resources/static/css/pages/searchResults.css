@@ -1,3 +1,16 @@
+.category{
+    background-color: white;
+    margin-left: 10px;
+    border-radius: 20px;
+    padding: 3px;
+}
+.category span{
+    color: black;
+}
+.category:hover{
+    text-decoration: none;
+    color: black;
+}
 .found-artists{
     display: flex;
     flex-wrap: nowrap;

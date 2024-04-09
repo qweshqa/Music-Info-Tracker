@@ -53,6 +53,6 @@ public class MainController {
             model.addAttribute("albums", foundAlbums);
         } else model.addAttribute("albums_not_found", "No one album was found");
 
-        return "searchResults";
+        return "search/searchResults";
     }
 }
