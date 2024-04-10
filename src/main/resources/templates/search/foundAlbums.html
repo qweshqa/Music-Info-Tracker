@@ -12,15 +12,13 @@
 </head>
 <body>
 
-<div class="found-tracks" th:if="tracks">
-    <div class="list__item list__found_track" th:each="track, iterStat: ${tracks}">
-        <img th:src="${track.getImageSource()}" alt="track image">
-
-        <div class="list__found_track__name">
-            <a th:href="@{/track/{id}(id=${track.getId()})}">
-                <h3 th:text="${track.getName()}"></h3>
-            </a>
-        </div>
+<div class="found_albums" th:if="albums">
+    <div class="item found_album" th:each="album, iterStat: ${albums}">
+        <a th:href="@{/albums/{id}(id=${album.getId()})}">
+            <img class="item__image" th:src="${album.getImageSource()}" alt="album image">
+            <h3 class="item__name" th:text="${album.getName()}"></h3>
+        </a>
+        <h3 class="item__param" th:text="${album.getAlbum_type()}"></h3>
     </div>
 </div>
 

@@ -52,4 +52,18 @@ public class SearchController {
 
         return "search/foundTracks";
     }
+    @GetMapping("/albums")
+    public String search(@RequestParam("query") String query, Model model) throws IOException, InterruptedException {
+        List<Album> foundAlbums;
+
+        foundAlbums = searchService.searchAlbums(query);
+
+        model.addAttribute("query", query);
+
+        if(!foundAlbums.isEmpty()){
+            model.addAttribute("albums", foundAlbums);
+        } else model.addAttribute("albums_not_found", "No one album was found");
+
+        return "search/foundAlbums";
+    }
 }
