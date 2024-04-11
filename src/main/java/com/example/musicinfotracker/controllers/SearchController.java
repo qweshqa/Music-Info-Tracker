@@ -28,7 +28,7 @@ public class SearchController {
     public String searchArtists(@RequestParam("query") String query, Model model) throws IOException, InterruptedException {
         List<Artist> foundArtists;
 
-        foundArtists = searchService.searchArtists(query);
+        foundArtists = searchService.searchArtists(query, 50);
 
         model.addAttribute("query", query);
         if(!foundArtists.isEmpty()){
@@ -42,7 +42,7 @@ public class SearchController {
     public String searchTracks(@RequestParam("query") String query, Model model) throws IOException, InterruptedException {
         List<Track> foundTracks;
 
-        foundTracks = searchService.searchTracks(query);
+        foundTracks = searchService.searchTracks(query, 50);
 
         model.addAttribute("query", query);
 
@@ -56,7 +56,7 @@ public class SearchController {
     public String search(@RequestParam("query") String query, Model model) throws IOException, InterruptedException {
         List<Album> foundAlbums;
 
-        foundAlbums = searchService.searchAlbums(query);
+        foundAlbums = searchService.searchAlbums(query, 50);
 
         model.addAttribute("query", query);
 

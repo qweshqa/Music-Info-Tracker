@@ -45,7 +45,7 @@
 </div>
 
 <div class="found-artists" th:if="artists">
-    <div class="item found-artist" th:each="artist, iterStat: ${artists}" th:unless="${iterStat.index >= 5}">
+    <div class="item found-artist" th:each="artist, iterStat: ${artists}">
         <a th:href="@{/artist/{id}(id=${artist.getId()})}">
             <img class="item__image item__image--circular" th:src="${artist.getImageSource()}" th:alt="${artist.getName()} + ' image'">
             <h3 class="item__name" th:text="${artist.getName()}" th:title="${artist.getName()}"></h3>
@@ -55,7 +55,7 @@
 </div>
 
 <div class="found-tracks" th:if="tracks">
-    <div class="list__item list__found_track" th:each="track, iterStat: ${tracks}" th:unless="${iterStat.index >= 5}">
+    <div class="list__item list__found_track" th:each="track, iterStat: ${tracks}">
         <img th:src="${track.getImageSource()}" alt="track image">
 
         <div class="list__found_track__name">
@@ -67,7 +67,7 @@
 </div>
 
 <div class="found_albums" th:if="albums">
-    <div class="item found_album" th:each="album, iterStat: ${albums}" th:unless="${iterStat.index >= 5}">
+    <div class="item found_album" th:each="album, iterStat: ${albums}">
         <a th:href="@{/albums/{id}(id=${album.getId()})}">
             <img class="item__image" th:src="${album.getImageSource()}" alt="album image">
             <h3 class="item__name" th:text="${album.getName()}"></h3>

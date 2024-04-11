@@ -31,13 +31,14 @@ public class SearchService {
         this.accessToken = accessToken;
     }
 
-    public List<Artist> searchArtists(String query) throws IOException, InterruptedException {
+    public List<Artist> searchArtists(String query, int limit) throws IOException, InterruptedException {
         String requestUrl = "https://api.spotify.com/v1/search";
         // split query on parts and connect by '+' to avoid URISyntaxException
         String[] queryParts = query.split("\\s+");
         String finalQuery = String.join("+", queryParts);
         String requestBody = "q=" + URLEncoder.encode(finalQuery, StandardCharsets.UTF_8) +
-                "&type=artist";
+                "&type=artist" +
+                "&limit=" + limit;
 
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
@@ -74,12 +75,13 @@ public class SearchService {
         return null;
     }
 
-    public List<Track> searchTracks(String query) throws IOException, InterruptedException {
+    public List<Track> searchTracks(String query, int limit) throws IOException, InterruptedException {
         String requestUrl = "https://api.spotify.com/v1/search";
         String[] queryParts = query.split("\\s+");
         String finalQuery = String.join("+", queryParts);
         String requestBody = "q=" + URLEncoder.encode(finalQuery, StandardCharsets.UTF_8) +
-                "&type=track";
+                "&type=track" +
+                "&limit=" + limit;;
 
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
@@ -112,12 +114,13 @@ public class SearchService {
         return null;
     }
 
-    public List<Album> searchAlbums(String query) throws IOException, InterruptedException{
+    public List<Album> searchAlbums(String query, int limit) throws IOException, InterruptedException{
         String requestUrl = "https://api.spotify.com/v1/search";
         String[] queryParts = query.split("\\s+");
         String finalQuery = String.join("+", queryParts);
         String requestBody = "q=" + URLEncoder.encode(finalQuery, StandardCharsets.UTF_8) +
-                "&type=album";
+                "&type=album" +
+                "&limit=" + limit;;
 
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()

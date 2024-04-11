@@ -36,9 +36,9 @@ public class MainController {
         List<Track> foundTracks;
         List<Album> foundAlbums;
 
-        foundArtists = searchService.searchArtists(query);
-        foundTracks = searchService.searchTracks(query);
-        foundAlbums = searchService.searchAlbums(query);
+        foundArtists = searchService.searchArtists(query, 5);
+        foundTracks = searchService.searchTracks(query, 5);
+        foundAlbums = searchService.searchAlbums(query, 5);
 
         model.addAttribute("query", query);
         if(!foundArtists.isEmpty()){
