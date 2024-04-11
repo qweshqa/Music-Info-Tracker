@@ -29,6 +29,12 @@
 
 </header>
 
+<div style="width: fit-content; position: relative; left: 10px">
+    <a th:href="@{/artist/{id}(id=${artist.getId()})}">
+        <h1 th:text="${artist.getName()}"></h1>
+    </a>
+</div>
+
 <div class="artist_albums">
     <div class="item" th:each="album: ${artist_albums}">
         <a th:href="@{/albums/{id}(id=${album.getId()})}">

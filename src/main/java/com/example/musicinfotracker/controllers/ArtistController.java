@@ -72,15 +72,18 @@ public class ArtistController {
     @GetMapping("/{id}/related_artists")
     public String viewArtistRelatedArtists(@PathVariable("id") String id, Model model) throws IOException, InterruptedException {
         List<Artist> related_artists = new ArrayList<>();
+        Artist artist = new Artist();
 
         try{
             related_artists = artistService.getArtistRelatedArtists(id);
+            artist = artistService.getArtist(id);
         } catch (ArtistNotFoundException ignored){
             model.addAttribute("errorMsg", "Artist wasn't found");
             return "404page";
         }
 
         model.addAttribute("related_artists", related_artists);
+        model.addAttribute("artist", artist);
         return "artist/related_artists";
     }
 }
