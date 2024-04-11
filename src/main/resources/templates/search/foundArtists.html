@@ -12,6 +12,12 @@
 </head>
 <body>
 
+<div style="width: fit-content; position: relative; left: 10px">
+    <a th:href="@{/musicInfoTracker/search(query=${query})}">
+        <h1 th:text="${'Query - ' + query}"></h1>
+    </a>
+</div>
+
 <div class="found-artists" th:if="artists">
     <div class="item found-artist" th:each="artist, iterStat: ${artists}">
         <a th:href="@{/artist/{id}(id=${artist.getId()})}">

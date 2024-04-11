@@ -12,6 +12,12 @@
 </head>
 <body>
 
+<div style="width: fit-content; position: relative; left: 10px">
+    <a th:href="@{/musicInfoTracker/search(query=${query})}">
+        <h1 th:text="${'Query - ' + query}"></h1>
+    </a>
+</div>
+
 <div class="found-tracks" th:if="tracks">
     <div class="list__item list__found_track" th:each="track, iterStat: ${tracks}">
         <img th:src="${track.getImageSource()}" alt="track image">
