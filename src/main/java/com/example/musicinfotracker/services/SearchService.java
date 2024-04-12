@@ -106,6 +106,7 @@ public class SearchService {
                 track.setName(trackNode.get(i).get("name").asText());
                 track.setImageSource(trackNode.get(i).get("album").get("images").get(0).get("url").asText());
                 track.setDurationMs(trackNode.get(i).get("duration_ms").asInt());
+                track.setPreview_url(trackNode.get(i).get("preview_url").asText());
 
                 tracks.add(track);
             }

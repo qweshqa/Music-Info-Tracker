@@ -36,6 +36,11 @@
     bottom: 100px;
     left: 1080px;
 }
+.list__found_track__audio{
+    position: relative;
+    bottom: 157px;
+    left: 1170px;
+}
 .found_albums{
     display: flex;
     flex-wrap: wrap;

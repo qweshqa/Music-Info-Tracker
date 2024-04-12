@@ -65,6 +65,10 @@
         </div>
 
         <h3 class="list__found_track__duration" th:text="${track.getDurationToDisplay()}"></h3>
+
+        <audio class="list__found_track__audio" controls>
+            <source th:src="${track.getPreview_url()}">
+        </audio>
     </div>
 </div>
 
