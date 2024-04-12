@@ -64,7 +64,6 @@ public class SearchService {
                 try{
                     artist.setImageSource(artistNode.get(i).get("images").get(0).get("url").asText());
                 } catch (NullPointerException ignored){
-
                 }
                 artist.setName(artistNode.get(i).get("name").asText());
                 

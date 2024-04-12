@@ -51,7 +51,7 @@ public class ArtistService {
             try{
                 artist.setImageSource(jsonNode.get("images").get(0).get("url").asText());
             } catch (NullPointerException ignored){
-                // if artist hasn't got any images, then continue
+                
             }
             artist.setName(jsonNode.get("name").asText());
             artist.setFollowers(jsonNode.get("followers").get("total").asInt());
@@ -127,8 +127,11 @@ public class ArtistService {
 
                 artist.setId(artistNode.get("id").asText());
                 artist.setName(artistNode.get("name").asText());
-                artist.setImageSource(artistNode.get("images").get(0).get("url").asText());
+                try{
+                    artist.setImageSource(artistNode.get("images").get(0).get("url").asText());
+                } catch(NullPointerException ignored){
 
+                }
                 relatedArtists.add(artist);
             }
             return relatedArtists;
