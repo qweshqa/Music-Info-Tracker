@@ -95,18 +95,31 @@ public class SearchService {
             ObjectMapper objectMapper = new ObjectMapper();
 
             JsonNode jsonNode = objectMapper.readTree(response.body());
-            JsonNode trackNode = jsonNode.get("tracks").get("items");
 
             List<Track> tracks = new ArrayList<>();
 
-            for (int i = 0; i < trackNode.size(); i++){
+            for (int i = 0; i < jsonNode.get("tracks").get("items").size(); i++){
+                JsonNode trackNode = jsonNode.get("tracks").get("items").get(i);
+
                 Track track = new Track();
 
-                track.setId(trackNode.get(i).get("id").asText());
-                track.setName(trackNode.get(i).get("name").asText());
-                track.setImageSource(trackNode.get(i).get("album").get("images").get(0).get("url").asText());
-                track.setDurationMs(trackNode.get(i).get("duration_ms").asInt());
-                track.setPreview_url(trackNode.get(i).get("preview_url").asText());
+                track.setId(trackNode.get("id").asText());
+                track.setName(trackNode.get("name").asText());
+                track.setImageSource(trackNode.get("album").get("images").get(0).get("url").asText());
+                track.setDurationMs(trackNode.get("duration_ms").asInt());
+                track.setPreview_url(trackNode.get("preview_url").asText());
+
+                List<Artist> trackArtists = new ArrayList<>();
+                for(int j = 0; j < trackNode.get("artists").size(); j++){
+                    JsonNode artistNode = trackNode.get("artists").get(j);
+                    Artist artist = new Artist();
+
+                    artist.setId(artistNode.get("id").asText());
+                    artist.setName(artistNode.get("name").asText());
+
+                    trackArtists.add(artist);
+                }
+                track.setArtists(trackArtists);
 
                 tracks.add(track);
             }

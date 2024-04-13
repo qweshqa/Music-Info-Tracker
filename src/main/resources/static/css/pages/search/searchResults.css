@@ -41,6 +41,16 @@
     bottom: 157px;
     left: 1170px;
 }
+.found-track__artists{
+    position: relative;
+    bottom: 260px;
+    left: 660px;
+
+    max-width: 350px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .found-albums{
     display: flex;
     flex-wrap: wrap;
