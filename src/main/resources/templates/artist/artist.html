@@ -61,21 +61,21 @@
 
 <h1 th:text="${artist.getName() + ' popular tracks'}" style="font-size: 20px; padding: 10px;"></h1>
 
-<div class="artist_top_tracks">
-    <div class="list__item" th:each="track, iterStat: ${artist_top_tracks}">
+<div class="artist-top-tracks">
+    <div class="list-item artist-top-track" th:each="track, iterStat: ${artist_top_tracks}">
         <h3 th:text="${iterStat.index + 1}" style="position: relative; left: 10px; top: 5px;"></h3>
 
-        <img class="artist_top_track__track__image" th:src="${track.getImageSource()}" alt="track image">
+        <img class="artist-top-track__image" th:src="${track.getImageSource()}" alt="track image">
 
-        <div class="artist_top_tracks__track__name">
+        <div class="artist-top-track__name">
             <a th:href="@{/track/{id}(id=${track.getId()})}">
                 <h3 th:text="${track.getName()}" th:title="${track.getName()}"></h3>
             </a>
         </div>
 
-        <h3 class="artist_top_tracks__track__duration" th:text="${track.getDurationToDisplay()}"></h3>
+        <h3 class="artist-top-track__duration" th:text="${track.getDurationToDisplay()}"></h3>
 
-        <audio controls class="artist_top_tracks__track__audio">
+        <audio controls class="artist-top-track__audio">
             <source th:src="${track.getPreview_url()}">
         </audio>
     </div>
@@ -83,8 +83,8 @@
 
 <h1 th:text="${artist.getName() + ' albums'}" style="font-size: 20px; padding: 10px;"></h1>
 
-<div class="artist_albums">
-    <div class="item" th:each="album: ${artist_albums}">
+<div class="artist-albums">
+    <div class="item artist-album" th:each="album: ${artist_albums}">
         <a th:href="@{/albums/{id}(id=${album.getId()})}">
             <img class="item__image" th:src="${album.getImageSource()}" alt="album image">
             <h3 class="item__name" th:text="${album.getName()}" th:title="${album.getName()}"></h3>
@@ -98,8 +98,8 @@
 
 <h1 style="font-size: 20px; padding: 10px;">Related artists</h1>
 
-<div class="artist_related_artists">
-    <div class="item" th:each="artist, iterStat: ${related_artists}" th:if="${iterStat.index < 5}">
+<div class="artist-related-artists">
+    <div class="item artist-related-artist" th:each="artist, iterStat: ${related_artists}" th:if="${iterStat.index < 5}">
         <a th:href="@{/artist/{id}(id=${artist.getId()})}">
             <img class="item__image item__image--circular" th:src="${artist.getImageSource()}" alt="artist image">
             <h3 class="item__name" th:text="${artist.getName()}" th:title="${artist.getName()}"></h3>

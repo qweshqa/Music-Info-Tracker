@@ -19,18 +19,18 @@
 </div>
 
 <div class="found-tracks" th:if="tracks">
-    <div class="list__item list__found_track" th:each="track, iterStat: ${tracks}">
+    <div class="list-item found-track" th:each="track, iterStat: ${tracks}">
         <img th:src="${track.getImageSource()}" alt="track image">
 
-        <div class="list__found_track__name">
+        <div class="found-track__name">
             <a th:href="@{/track/{id}(id=${track.getId()})}">
                 <h3 th:text="${track.getName()}"></h3>
             </a>
         </div>
 
-        <h3 class="list__found_track__duration" th:text="${track.getDurationToDisplay()}"></h3>
+        <h3 class="found-track__duration" th:text="${track.getDurationToDisplay()}"></h3>
 
-        <audio class="list__found_track__audio" controls>
+        <audio class="found-track__audio" controls>
             <source th:src="${track.getPreview_url()}">
         </audio>
     </div>

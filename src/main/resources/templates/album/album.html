@@ -64,18 +64,18 @@
     </h4>
 </div>
 
-<div class="album_tracks">
-    <div class="list__item" th:each="track : ${album.getTracks()}">
-        <h3 class="album_tracks__track__number" th:text="${track.getTrackNumberInAlbum()}"></h3>
+<div class="album-tracks">
+    <div class="list-item album-track" th:each="track : ${album.getTracks()}">
+        <h3 class="album-track__number" th:text="${track.getTrackNumberInAlbum()}"></h3>
 
-        <img class="album_tracks__track__image" th:src="${album.getImageSource()}" alt="track image">
+        <img class="album-track__image" th:src="${album.getImageSource()}" alt="track image">
 
-        <h3 class="album_tracks__track__name">
+        <h3 class="album-track__name">
             <a th:href="@{/track/{id}(id=${track.getId()})}" th:text="${track.getName()}"
                th:title="${track.getName()}" style="color: white;"></a>
         </h3>
 
-        <h3 class="album_tracks__track__artists">
+        <h3 class="album-track__artists">
             <span th:each="artist, iterStat : ${track.getArtists()}">
                 <a th:href="@{/artist/{id}(id=${artist.getId()})}" th:text="${artist.getName()}"
                    th:title="${artist.getName()}" style="color: white;"></a>
@@ -83,9 +83,9 @@
             </span>
         </h3>
 
-        <h3 class="album_tracks__track__duration" th:text="${track.getDurationToDisplay}"></h3>
+        <h3 class="album-track__duration" th:text="${track.getDurationToDisplay}"></h3>
 
-        <audio controls class="album_tracks__track__audio">
+        <audio controls class="album-track__audio">
             <source th:src="${track.getPreview_url()}">
         </audio>
     </div>

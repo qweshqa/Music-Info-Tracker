@@ -20,28 +20,28 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.list__found_track img{
+.found-track img{
     position: relative;
     top: 5px;
     left: 225px;
 }
-.list__found_track__name{
+.found-track__name{
     position: relative;
     left: 290px;
     bottom: 60px;
     width: fit-content;
 }
-.list__found_track__duration{
+.found-track__duration{
     position: relative;
     bottom: 100px;
     left: 1080px;
 }
-.list__found_track__audio{
+.found-track__audio{
     position: relative;
     bottom: 157px;
     left: 1170px;
 }
-.found_albums{
+.found-albums{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;

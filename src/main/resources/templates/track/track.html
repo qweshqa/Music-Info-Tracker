@@ -65,7 +65,7 @@
 <h3 id="recommendation-title">Recommendations:</h3>
 
 <div id="track-recommendations">
-    <div class="recommended_track_container">
+    <div class="recommended-track-container">
         <div class="item" th:each="recommendedTrack : ${recommendations}">
             <a th:href="@{/track/{id}(id=${recommendedTrack.getId()})}">
                 <img class="item__image" th:src="${recommendedTrack.getImageSource()}" alt="track image">

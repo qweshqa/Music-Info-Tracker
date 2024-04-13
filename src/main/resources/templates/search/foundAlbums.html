@@ -18,8 +18,8 @@
     </a>
 </div>
 
-<div class="found_albums" th:if="albums">
-    <div class="item found_album" th:each="album, iterStat: ${albums}">
+<div class="found-albums" th:if="albums">
+    <div class="item found-album" th:each="album, iterStat: ${albums}">
         <a th:href="@{/albums/{id}(id=${album.getId()})}">
             <img class="item__image" th:src="${album.getImageSource()}" alt="album image">
             <h3 class="item__name" th:text="${album.getName()}"></h3>

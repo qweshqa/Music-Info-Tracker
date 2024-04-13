@@ -18,8 +18,8 @@
   </a>
 </div>
 
-<div class="related_artists">
-  <div class="item" th:each="related_artist, iterStat: ${related_artists}">
+<div class="related-artists">
+  <div class="item related_artist" th:each="related_artist, iterStat: ${related_artists}">
     <a th:href="@{/artist/{id}(id=${related_artist.getId()})}">
       <img class="item__image item__image--circular" th:src="${related_artist.getImageSource()}" alt="artist image">
       <h3 class="item__name" th:text="${related_artist.getName()}" th:title="${related_artist.getName()}"></h3>

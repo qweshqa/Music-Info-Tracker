@@ -51,36 +51,36 @@
 .artist__genres--details_color{
     color: #626262;
 }
-.artist_top_track__track__image{
+.artist-top-track__image{
     position: relative;
     left: 255px;
     bottom: 55px;
 }
-.artist_top_tracks__track__name{
+.artist-top-track__name{
     position: relative;
     left: 320px;
     bottom: 120px;
 
     width: fit-content;
 }
-.artist_top_tracks__track__duration{
+.artist-top-track__duration{
     position: relative;
     left: 1080px;
     bottom: 160px;
 }
-.artist_top_tracks__track__audio{
+.artist-top-track__audio{
     position: relative;
     left: 1170px;
     bottom: 220px;
 }
-.artist_albums{
+.artist-albums{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-content: center;
     gap: 10px;
 }
-.artist_related_artists{
+.artist-related-artists{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

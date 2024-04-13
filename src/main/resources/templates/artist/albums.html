@@ -35,8 +35,8 @@
     </a>
 </div>
 
-<div class="artist_albums">
-    <div class="item" th:each="album: ${artist_albums}">
+<div class="artist-albums">
+    <div class="item artist-albums" th:each="album: ${artist_albums}">
         <a th:href="@{/albums/{id}(id=${album.getId()})}">
             <img class="item__image" th:src="${album.getImageSource()}" alt="album image">
             <h3 class="item__name" th:text="${album.getName()}" th:title="${album.getName()}"></h3>
