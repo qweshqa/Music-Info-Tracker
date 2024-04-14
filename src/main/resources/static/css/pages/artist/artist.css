@@ -61,7 +61,10 @@
     left: 320px;
     bottom: 120px;
 
-    width: fit-content;
+    max-width: 350px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .artist-top-track__duration{
     position: relative;
@@ -72,6 +75,16 @@
     position: relative;
     left: 1170px;
     bottom: 220px;
+}
+.artist-top-track__album{
+    position: relative;
+    bottom: 280px;
+    left: 690px;
+
+    max-width: 350px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .artist-albums{
     display: flex;

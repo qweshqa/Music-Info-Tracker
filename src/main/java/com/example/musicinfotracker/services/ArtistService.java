@@ -95,6 +95,12 @@ public class ArtistService {
                 artist_top_track.setDurationMs(trackNode.get("duration_ms").asInt());
                 artist_top_track.setPreview_url(trackNode.get("preview_url").asText());
 
+                Album album = new Album();
+                album.setId(trackNode.get("album").get("id").asText());
+                album.setName(trackNode.get("album").get("name").asText());
+
+                artist_top_track.setAlbum(album);
+
                 artist_top_tracks.add(artist_top_track);
             }
             return artist_top_tracks;
