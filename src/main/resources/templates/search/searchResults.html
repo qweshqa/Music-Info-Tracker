@@ -69,6 +69,14 @@
         <audio class="found-track__audio" controls>
             <source th:src="${track.getPreview_url()}">
         </audio>
+
+        <h3 class="found-track__artists">
+            <span th:each="artist, iterStat : ${track.getArtists()}">
+                <a th:href="@{/artist/{id}(id=${artist.getId()})}" th:text="${artist.getName()}"
+                   th:title="${artist.getName()}" style="color: white;"></a>
+                <span th:if="${!iterStat.last}">, </span>
+            </span>
+        </h3>
     </div>
 </div>
 
