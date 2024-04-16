@@ -2,9 +2,11 @@ package com.example.musicinfotracker.services;
 
 import com.example.musicinfotracker.dto.Album;
 import com.example.musicinfotracker.dto.Artist;
+import com.example.musicinfotracker.dto.Playlist;
 import com.example.musicinfotracker.dto.Track;
 import com.example.musicinfotracker.utils.AlbumNotFoundException;
 import com.example.musicinfotracker.utils.ArtistNotFoundException;
+import com.example.musicinfotracker.utils.PlaylistNotFoundException;
 import com.example.musicinfotracker.utils.TrackNotFoundException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -169,5 +171,42 @@ public class SearchService {
             return foundAlbums;
         }
         return null;
+    }
+
+    public List<Playlist> searchPlaylists(String query, int limit) throws IOException, InterruptedException{
+        String requestUrl = "https://api.spotify.com/v1/search";
+        String[] queryParts = query.split("\\s+");
+        String finalQuery = String.join("+", queryParts);
+        String requestBody = "q=" + URLEncoder.encode(finalQuery, StandardCharsets.UTF_8) +
+                "&type=playlist" +
+                "&limit=" + limit;
+
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(requestUrl + "?" + requestBody))
+                .header("Authorization", "Bearer " + accessToken)
+                .GET()
+                .build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        if(response.statusCode() == 200){
+            ObjectMapper objectMapper = new ObjectMapper();
+            JsonNode jsonNode = objectMapper.readTree(response.body());
+
+            List<Playlist> foundPlaylists = new ArrayList<>();
+            for(int i = 0; i < jsonNode.get("playlists").get("items").size(); i++){
+                JsonNode playlistNode = jsonNode.get("playlists").get("items").get(i);
+                Playlist playlist = new Playlist();
+
+                playlist.setId(playlistNode.get("id").asText());
+                playlist.setName(playlistNode.get("name").asText());
+                playlist.setImageSource(playlistNode.get("images").get(0).get("url").asText());
+
+                foundPlaylists.add(playlist);
+            }
+            return foundPlaylists;
+        }
+        throw new PlaylistNotFoundException();
     }
 }

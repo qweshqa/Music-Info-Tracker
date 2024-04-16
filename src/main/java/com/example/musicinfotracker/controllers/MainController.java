@@ -2,6 +2,7 @@ package com.example.musicinfotracker.controllers;
 
 import com.example.musicinfotracker.dto.Album;
 import com.example.musicinfotracker.dto.Artist;
+import com.example.musicinfotracker.dto.Playlist;
 import com.example.musicinfotracker.dto.Track;
 import com.example.musicinfotracker.services.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,10 +36,12 @@ public class MainController {
         List<Artist> foundArtists;
         List<Track> foundTracks;
         List<Album> foundAlbums;
+        List<Playlist> foundPlaylists;
 
         foundArtists = searchService.searchArtists(query, 5);
         foundTracks = searchService.searchTracks(query, 5);
         foundAlbums = searchService.searchAlbums(query, 5);
+        foundPlaylists = searchService.searchPlaylists(query, 5);
 
         model.addAttribute("query", query);
         if(!foundArtists.isEmpty()){
@@ -52,6 +55,10 @@ public class MainController {
         if(!foundAlbums.isEmpty()){
             model.addAttribute("albums", foundAlbums);
         } else model.addAttribute("albums_not_found", "No one album was found");
+
+        if(!foundPlaylists.isEmpty()){
+            model.addAttribute("playlists", foundPlaylists);
+        } else model.addAttribute("playlists_not_found", "No one playlist was found");
 
         return "search/searchResults";
     }

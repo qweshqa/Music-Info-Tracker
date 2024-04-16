@@ -89,5 +89,15 @@
         <h3 class="item__param" th:text="${album.getAlbum_type()}"></h3>
     </div>
 </div>
+
+<div class="found-playlists" th:if="playlists">
+    <div class="item found-playlist" th:each="playlist, iterStat: ${playlists}">
+        <a th:href="@{/playlist/{id}(id=${playlist.getId()})}">
+            <img class="item__image" th:src="${playlist.getImageSource()}" alt="playlist image">
+            <h3 class="item__name" th:text="${playlist.getName()}"></h3>
+        </a>
+        <h3 class="item__param">Playlist</h3>
+    </div>
+</div>
 </body>
 </html>
