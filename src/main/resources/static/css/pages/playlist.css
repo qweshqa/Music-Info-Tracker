@@ -25,3 +25,23 @@
     left: 640px;
     bottom: 10px;
 }
+.playlist--details-color{
+    color: #626262;
+}
+.playlist__status{
+    position: relative;
+    left: 640px;
+    bottom: 130px;
+}
+.playlist__description{
+    position: relative;
+    left: 640px;
+    bottom: 280px;
+    max-width: 800px;
+    overflow: auto;
+}
+.playlist__followers{
+    position: relative;
+    left: 300px;
+    bottom: 510px;
+}

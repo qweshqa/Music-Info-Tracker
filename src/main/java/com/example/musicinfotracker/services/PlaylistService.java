@@ -45,6 +45,8 @@ public class PlaylistService {
             playlist.setOwner(jsonNode.get("owner").get("display_name").asText());
             playlist.setImageSource(jsonNode.get("images").get(0).get("url").asText());
             playlist.setPublicStatus(jsonNode.get("public").asBoolean());
+            playlist.setDescription(jsonNode.get("description").asText());
+            playlist.setFollowers(jsonNode.get("followers").get("total").asInt());
 
             return playlist;
         }
