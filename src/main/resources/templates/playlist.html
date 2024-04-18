@@ -43,5 +43,41 @@
 
     <h3 class="playlist__followers playlist--details-color" th:text="${playlist.getFollowers() + ' followers'}"></h3>
 </div>
+
+<div class="album_track_origin">
+    <h4>
+        <span class="album_track_origin__param" style="left: 10px;">#</span>
+        <span class="album_track_origin__param">Name</span>
+        <span class="album_track_origin__param">Artists</span>
+        <span class="album_track_origin__param">Duration</span>
+    </h4>
+</div>
+
+<div class="playlist-tracks">
+    <div class="list-item playlist-track" th:each="track, iterStat: ${playlist.getTracks()}">
+        <h3 class="album-track__number" th:text="${iterStat.index + 1}"></h3>
+
+        <img class="album-track__image" th:src="${track.getImageSource()}" alt="track image">
+
+        <h3 class="album-track__name">
+            <a th:href="@{/track/{id}(id=${track.getId()})}" th:text="${track.getName()}"
+               th:title="${track.getName()}" style="color: white;"></a>
+        </h3>
+
+        <h3 class="album-track__artists">
+            <span th:each="artist, iterStat : ${track.getArtists()}">
+                <a th:href="@{/artist/{id}(id=${artist.getId()})}" th:text="${artist.getName()}"
+                   th:title="${artist.getName()}" style="color: white;"></a>
+                <span th:if="${!iterStat.last}">, </span>
+            </span>
+        </h3>
+
+        <h3 class="album-track__duration" th:text="${track.getDurationToDisplay}"></h3>
+
+        <audio controls class="album-track__audio">
+            <source th:src="${track.getPreview_url()}">
+        </audio>
+    </div>
+</div>
 </body>
 </html>
