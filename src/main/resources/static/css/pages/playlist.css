@@ -1,0 +1,27 @@
+.playlist{
+    background-color: #1a1a1a;
+    height: 480px;
+    width: auto;
+}
+.playlist__image{
+    width: 320px;
+    height: 320px;
+
+    position: relative;
+
+    top: 60px;
+    left: 300px;
+}
+.playlist__image--border{
+    border-style: solid;
+    border-color: white;
+}
+.playlist__name{
+    position: relative;
+    left: 640px;
+}
+.playlist__owner{
+    position: relative;
+    left: 640px;
+    bottom: 10px;
+}
