@@ -33,15 +33,15 @@
 <div class="playlist">
     <img class="playlist__image playlist__image--border" th:src="${playlist.getImageSource()}" alt="playlist image">
 
-    <h1 class="playlist__name" th:text="${playlist.getName()}"></h1>
+    <h1 class="playlist__name" th:text="${playlist.getName()}" th:title="${playlist.getName()}"></h1>
 
     <h3 class="playlist__owner" th:text="${'By ' + playlist.getOwner()}"></h3>
 
     <h3 class="playlist__status playlist--details-color" th:text="${'Public: ' + playlist.isPublicStatus()}"></h3>
 
-    <h3 class="playlist__description" th:text="${playlist.getDescription()}"></h3>
-
     <h3 class="playlist__followers playlist--details-color" th:text="${playlist.getFollowers() + ' followers'}"></h3>
+
+    <h3 class="playlist__description" th:text="${playlist.getDescription()}"></h3>
 </div>
 
 <div class="album_track_origin">

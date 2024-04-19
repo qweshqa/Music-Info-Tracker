@@ -19,6 +19,11 @@
 .playlist__name{
     position: relative;
     left: 640px;
+
+    max-width: 800px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .playlist__owner{
     position: relative;
@@ -36,12 +41,12 @@
 .playlist__description{
     position: relative;
     left: 640px;
-    bottom: 280px;
+    bottom: 320px;
     max-width: 800px;
     overflow: auto;
 }
 .playlist__followers{
     position: relative;
     left: 300px;
-    bottom: 510px;
+    bottom: 570px;
 }
