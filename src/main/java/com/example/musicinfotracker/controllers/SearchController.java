@@ -2,6 +2,7 @@ package com.example.musicinfotracker.controllers;
 
 import com.example.musicinfotracker.dto.Album;
 import com.example.musicinfotracker.dto.Artist;
+import com.example.musicinfotracker.dto.Playlist;
 import com.example.musicinfotracker.dto.Track;
 import com.example.musicinfotracker.services.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +54,7 @@ public class SearchController {
         return "search/foundTracks";
     }
     @GetMapping("/albums")
-    public String search(@RequestParam("query") String query, Model model) throws IOException, InterruptedException {
+    public String searchAlbums(@RequestParam("query") String query, Model model) throws IOException, InterruptedException {
         List<Album> foundAlbums;
 
         foundAlbums = searchService.searchAlbums(query, 50);
@@ -65,5 +66,20 @@ public class SearchController {
         } else model.addAttribute("albums_not_found", "No one album was found");
 
         return "search/foundAlbums";
+    }
+
+    @GetMapping("/playlists")
+    public String searchPlaylists(@RequestParam("query") String query, Model model) throws IOException, InterruptedException{
+        List<Playlist> foundPlaylists;
+
+        foundPlaylists = searchService.searchPlaylists(query, 50);
+
+        model.addAttribute("query", query);
+
+        if(!foundPlaylists.isEmpty()){
+            model.addAttribute("playlists", foundPlaylists);
+        } else model.addAttribute("playlists_not_found", "No one playlist was found");
+
+        return "search/foundPlaylists";
     }
 }
