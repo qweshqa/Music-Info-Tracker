@@ -66,25 +66,25 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.artist-top-track__duration{
-    position: relative;
-    left: 1080px;
-    bottom: 160px;
-}
-.artist-top-track__audio{
-    position: relative;
-    left: 1170px;
-    bottom: 220px;
-}
 .artist-top-track__album{
     position: relative;
-    bottom: 280px;
+    bottom: 180px;
     left: 690px;
 
     max-width: 350px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+.artist-top-track__duration{
+    position: relative;
+    left: 1080px;
+    bottom: 240px;
+}
+.artist-top-track__audio{
+    position: relative;
+    left: 1170px;
+    bottom: 300px;
 }
 .artist-albums{
     display: flex;

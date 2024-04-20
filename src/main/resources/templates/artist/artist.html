@@ -73,17 +73,18 @@
             </a>
         </div>
 
+        <div class="artist-top-track__album">
+            <a th:href="@{/albums/{id}(id=${track.getAlbum().getId()})}" th:title="${track.getAlbum().getName()}">
+                <h3 th:text="${track.getAlbum().getName()}"></h3>
+            </a>
+        </div>
+
         <h3 class="artist-top-track__duration" th:text="${track.getDurationToDisplay()}"></h3>
 
         <audio controls class="artist-top-track__audio">
             <source th:src="${track.getPreview_url()}">
         </audio>
 
-        <div class="artist-top-track__album">
-            <a th:href="@{/albums/{id}(id=${track.getAlbum().getId()})}" th:title="${track.getAlbum().getName()}">
-                <h3 th:text="${track.getAlbum().getName()}"></h3>
-            </a>
-        </div>
     </div>
 </div>
 
