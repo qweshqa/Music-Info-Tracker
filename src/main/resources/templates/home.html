@@ -34,5 +34,16 @@
     <h1>Music Info Tracker</h1>
 </div>
 
+<h3 style="position: relative; top: 450px; margin: auto;" >New releases</h3>
+
+<div class="new-releases">
+    <div class="item new-release" th:each="album: ${new_releases}">
+        <a th:href="@{/albums/{id}(id=${album.getId()})}">
+            <img class="item__image" th:src="${album.getImageSource()}" alt="track image">
+            <h3 class="item__name" th:text="${album.getName()}" th:title="${album.getName()}"></h3>
+        </a>
+        <h3 class="item__param" th:text="${album.getAlbum_type()}"></h3>
+    </div>
+</div>
 </body>
 </html>

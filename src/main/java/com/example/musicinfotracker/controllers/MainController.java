@@ -4,7 +4,9 @@ import com.example.musicinfotracker.dto.Album;
 import com.example.musicinfotracker.dto.Artist;
 import com.example.musicinfotracker.dto.Playlist;
 import com.example.musicinfotracker.dto.Track;
+import com.example.musicinfotracker.services.AlbumService;
 import com.example.musicinfotracker.services.SearchService;
+import com.example.musicinfotracker.utils.AlbumNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,13 +22,27 @@ import java.util.List;
 public class MainController {
     private SearchService searchService;
 
+    private AlbumService albumService;
+
     @Autowired
-    public MainController(SearchService searchService) {
+    public MainController(SearchService searchService, AlbumService albumService) {
         this.searchService = searchService;
+        this.albumService = albumService;
     }
 
     @GetMapping()
-    public String mainPage(){
+    public String mainPage(Model model) throws IOException, InterruptedException {
+        // get new releases
+        List<Album> new_releases;
+
+        try{
+            new_releases = albumService.getNewReleases(25);
+        } catch (AlbumNotFoundException ignored){
+            model.addAttribute("albums_not_found", "No one release was found");
+            return "404page";
+        }
+        model.addAttribute("new_releases", new_releases);
+
         return "home";
     }
 

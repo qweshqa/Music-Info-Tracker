@@ -105,4 +105,41 @@ public class AlbumService {
         }
         throw new AlbumNotFoundException();
     }
+
+    public List<Album> getNewReleases(int limit) throws IOException, InterruptedException {
+        String requestUrl = "https://api.spotify.com/v1/browse/new-releases";
+        String requestBody = "limit=" + limit;
+
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(requestUrl + "?" + requestBody))
+                .header("Authorization", "Bearer " + accessToken)
+                .GET()
+                .build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        if(response.statusCode() == 200){
+            ObjectMapper objectMapper = new ObjectMapper();
+            JsonNode jsonNode = objectMapper.readTree(response.body());
+
+            List<Album> found_releases = new ArrayList<>();
+            for(int i = 0; i < jsonNode.get("albums").get("items").size(); i++){
+                JsonNode albumNode = jsonNode.get("albums").get("items").get(i);
+                Album album = new Album();
+
+                album.setId(albumNode.get("id").asText());
+                album.setImageSource(albumNode.get("images").get(0).get("url").asText());
+                album.setName(albumNode.get("name").asText());
+                if(albumNode.get("album_type").asText().equals("single") && albumNode.get("total_tracks").asInt() > 1){
+                    album.setAlbum_type("EP");
+                } else{
+                    album.setAlbum_type(albumNode.get("album_type").asText());
+                }
+                found_releases.add(album);
+            }
+            return found_releases;
+        }
+        throw new AlbumNotFoundException();
+    }
 }
