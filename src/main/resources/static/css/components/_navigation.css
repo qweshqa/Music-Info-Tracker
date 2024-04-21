@@ -1,0 +1,13 @@
+.header__navbar ul{
+    list-style-type: none;
+    background-color: #0a0a0a;
+    padding: 0;
+    margin: 0;
+}
+.header__navbar a{
+    padding: 20px;
+}
+.header__navbar a:hover{
+    background-color: #1a1a1a;
+    text-decoration: none;
+}

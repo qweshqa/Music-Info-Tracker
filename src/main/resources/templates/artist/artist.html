@@ -16,8 +16,13 @@
 <body>
 
 <header class="header">
+    <nav class="header__navbar">
+        <ul>
+            <li><h3><a href="/musicInfoTracker">Home</a></h3></li>
+        </ul>
+    </nav>
 
-    <form class="header__search" name="f" method="get" th:action="@{/musicInfoTracker/search}">
+    <form class="header__search" name="f" method="get" th:action="@{/musicInfoTracker/search}" style="margin-left: 10px;">
 
         <label for="search"></label>
         <input class="header__search__field" type="text" id="search" name="query" placeholder="Query"/>
